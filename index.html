@@ -16,25 +16,43 @@ html, body {
     background: black;
 }
 
-embed {
+embed, img {
     width: 100vw;
     height: 100vh;
     border: none;
+    object-fit: contain;
 }
 </style>
 </head>
 
 <body>
 
-<embed id="pdf" type="application/pdf">
+<div id="viewer"></div>
 
 <script>
 const params = new URLSearchParams(window.location.search);
 
-const pdf = params.get("pdf");
+const file = params.get("file");
 
-if(pdf){
-    document.getElementById("pdf").src = pdf + "?v=" + Date.now();
+if(file){
+
+    const url =
+    "https://supacek.github.io/ZAMET/" +
+    file +
+    "?v=" + Date.now();
+
+    const ext = file.split('.').pop().toLowerCase();
+
+    if(ext === "pdf"){
+
+        document.getElementById("viewer").innerHTML =
+        `<embed src="${url}" type="application/pdf">`;
+
+    } else {
+
+        document.getElementById("viewer").innerHTML =
+        `<img src="${url}">`;
+    }
 }
 </script>
 
