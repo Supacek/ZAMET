@@ -2,7 +2,10 @@
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 
 <style>
 html, body {
@@ -13,19 +16,27 @@ html, body {
     background: black;
 }
 
-iframe {
-    border: none;
+embed {
     width: 100vw;
     height: 100vh;
+    border: none;
 }
 </style>
 </head>
 
 <body>
 
-<iframe
-src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://supacek.github.io/ZAMET/mistrovstv%C3%AD%20sv%C4%9Bta%20ve%20fotbale.pdf">
-</iframe>
+<embed id="pdf" type="application/pdf">
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+const pdf = params.get("pdf");
+
+if(pdf){
+    document.getElementById("pdf").src = pdf + "?v=" + Date.now();
+}
+</script>
 
 </body>
 </html>
