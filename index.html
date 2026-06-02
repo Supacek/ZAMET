@@ -1,50 +1,215 @@
+```html id="97vjlwm"
 <!DOCTYPE html>
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
 
 <style>
+
 html, body {
+
     margin: 0;
     width: 100%;
     height: 100%;
+
     overflow: hidden;
+
+    background: black;
+
+    font-family: Arial, sans-serif;
+}
+
+/* HLAVNÍ OBLAST */
+
+#content {
+
+    width: 100vw;
+
+    height: calc(100vh - 70px);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
     background: black;
 }
 
-.container {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-}
+/* OBRÁZEK */
 
-.image-box {
-    flex: 1;
-    overflow: hidden;
-}
+#slide {
 
-img {
     width: 100%;
     height: 100%;
+
     object-fit: contain;
+
+    opacity: 3;
+
+    transition: opacity 2s ease-in-out;
+
     background: black;
 }
+
+/* SPODNÍ LIŠTA */
+
+#ticker-bar {
+
+    width: 100vw;
+
+    height: 70px;
+
+    background: #141b7b;
+
+    border-top: 3px solid #ff0000;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: flex-start;
+}
+
+/* TEXT */
+
+#ticker {
+
+    white-space: nowrap;
+
+    color: white;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    padding-left: 100%;
+
+    padding-top: 4px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    height: 100%;
+
+    will-change: transform;
+
+    transform: translate3d(0,0,0);
+
+    animation: tickerMove 40s linear infinite;
+}
+
+/* ANIMACE */
+
+@keyframes tickerMove {
+
+    0% {
+
+        transform: translate3d(0,0,0);
+    }
+
+    100% {
+
+        transform: translate3d(-100%,0,0);
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- OBRÁZKY -->
 
-    <div class="image-box">
-        <img src="hledamekoleg.jpg">
-    </div>
+<div id="content">
 
-    <div class="image-box">
-        <img src="fotbal.jpg">
+    <img id="slide" src="">
+
+</div>
+
+<!-- SPODNÍ TEXT -->
+
+<div id="ticker-bar">
+
+    <div id="ticker">
+
+        Hokej tipovačka je ukončená •
+        1. místo: Daniel Vraj •
+        2. místo: Martin Orság •
+        3. místo: Renata Rajmicová, Helena Manaková a Jiří Tkadlec •
+        Gratulujeme výhercům •
+        Hledáme nové kolegy •
+        Kariéra ZAMET •
+        Více informací na karierazamet.cz •
+        Nástup možný ihned
+
     </div>
 
 </div>
 
+<script>
+
+/* OBRÁZKY */
+
+const images = [
+
+    "hledamekoleg.jpg",
+    "fotbal.jpg"
+
+];
+
+/* SLIDESHOW */
+
+let index = 0;
+
+const slide = document.getElementById("slide");
+
+function showImage() {
+
+    /* FADE OUT */
+
+    slide.style.opacity = 0;
+
+    /* POČKAT NA ZMIZENÍ */
+
+    setTimeout(() => {
+
+        /* ZMĚNIT OBRÁZEK */
+
+        slide.src =
+            images[index] + "?v=" + Date.now();
+
+        /* AŽ SE NAČTE */
+
+        slide.onload = () => {
+
+            /* FADE IN */
+
+            slide.style.opacity = 1;
+        };
+
+        index++;
+
+        if(index >= images.length) {
+
+            index = 0;
+        }
+
+    }, 1500);
+}
+
+/* START */
+
+showImage();
+
+/* INTERVAL */
+
+setInterval(showImage, 10000);
+
+</script>
+
 </body>
 </html>
+```
