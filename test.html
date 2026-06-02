@@ -67,7 +67,7 @@ html, body {
     text-align: center;
 }
 
-/* SVÁTEK */
+/* ČESKÝ SVÁTEK */
 
 #nameday-title {
 
@@ -85,6 +85,32 @@ html, body {
     font-weight: bold;
 
     color: #ffffff;
+
+    text-align: center;
+
+    padding: 0 20px;
+}
+
+/* UKRAJINSKÝ SVÁTEK */
+
+#ua-title {
+
+    font-size: 22px;
+
+    color: #bbbbbb;
+
+    margin-top: 40px;
+
+    margin-bottom: 10px;
+}
+
+#ua-nameday {
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+    color: #ffd700;
 
     text-align: center;
 
@@ -207,6 +233,12 @@ html, body {
 
         <div id="nameday"></div>
 
+        <div id="ua-title">
+            Українське свято
+        </div>
+
+        <div id="ua-nameday"></div>
+
     </div>
 
     <!-- OBRÁZKY -->
@@ -238,7 +270,11 @@ html, body {
     </div>
 
 </div>
+
+<!-- SVÁTKY -->
+
 <script src="svatek.js"></script>
+
 <script>
 
 /* OBRÁZKY */
@@ -289,15 +325,33 @@ setInterval(showImage, 10000);
 const today = new Date();
 
 const options = {
+
     day: 'numeric',
     month: 'long',
     year: 'numeric'
 };
 
 document.getElementById("date").innerHTML =
+
     today.toLocaleDateString('cs-CZ', options);
 
-/* SVÁTEK */ const key = today.getDate() + "-" + (today.getMonth()+1); document.getElementById("nameday").innerHTML = namedays[key] || "—";;
+/* KLÍČ DATA */
+
+const key =
+
+    today.getDate() + "-" + (today.getMonth()+1);
+
+/* ČESKÝ SVÁTEK */
+
+document.getElementById("nameday").innerHTML =
+
+    namedays[key] || "—";
+
+/* UKRAJINSKÝ SVÁTEK */
+
+document.getElementById("ua-nameday").innerHTML =
+
+    uaNamedays[key] || "—";
 
 </script>
 
