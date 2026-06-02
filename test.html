@@ -15,6 +15,7 @@ html,
 body {
 
     margin: 0;
+
     width: 100%;
     height: 100%;
 
@@ -154,18 +155,29 @@ body {
 
     display: flex;
 
-    justify-content: center;
-
-    align-items: center;
-
     background: black;
 }
 
 /* ===================================================== */
-/* OBRÁZEK */
+/* OBRÁZKY */
 /* ===================================================== */
 
-#slide {
+.image-box {
+
+    flex: 1;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background: black;
+}
+
+.image-box img {
 
     width: 100%;
 
@@ -173,11 +185,7 @@ body {
 
     object-fit: contain;
 
-    opacity: 1;
-
     background: black;
-
-    transition: opacity 2s ease-in-out;
 }
 
 /* ===================================================== */
@@ -301,7 +309,17 @@ body {
 
     <div id="content">
 
-        <img id="slide" src="">
+        <div class="image-box">
+
+            <img src="hledamekoleg.jpg">
+
+        </div>
+
+        <div class="image-box">
+
+            <img src="fotbal.jpg">
+
+        </div>
 
     </div>
 
@@ -336,52 +354,6 @@ body {
 <script src="svatek.js"></script>
 
 <script>
-
-/* ===================================================== */
-/* OBRÁZKY */
-/* ===================================================== */
-
-const images = [
-
-    "hledamekoleg.jpg",
-    "fotbal.jpg"
-];
-
-/* ===================================================== */
-/* SLIDESHOW */
-/* ===================================================== */
-
-let index = 0;
-
-const slide = document.getElementById("slide");
-
-function showImage() {
-
-    slide.style.opacity = 0;
-
-    setTimeout(() => {
-
-        slide.src =
-            images[index] + "?v=" + Date.now();
-
-        slide.onload = () => {
-
-            slide.style.opacity = 1;
-        };
-
-        index++;
-
-        if(index >= images.length) {
-
-            index = 0;
-        }
-
-    }, 1500);
-}
-
-showImage();
-
-setInterval(showImage, 10000);
 
 /* ===================================================== */
 /* DATUM */
@@ -488,4 +460,5 @@ if(holidays[key]) {
 </script>
 
 </body>
+
 </html>
