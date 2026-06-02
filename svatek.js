@@ -772,6 +772,26 @@ const uaNamedays = {
 "30-12":"Данило",
 "31-12":"Модест",
 };
+
+/* STÁTNÍ SVÁTKY */
+const holidays = {
+
+    "1-1":"Nový rok",
+    "1-5":"Svátek práce",
+    "8-5":"Den vítězství",
+    "5-7":"Den slovanských věrozvěstů Cyrila a Metoděje",
+    "6-7":"Den upálení mistra Jana Husa",
+    "28-9":"Den české státnosti",
+    "28-10":"Den vzniku samostatného Československa",
+    "17-11":"Den boje za svobodu a demokracii",
+    "24-12":"Štědrý den",
+    "25-12":"1. svátek vánoční",
+    "26-12":"2. svátek vánoční"
+
+};
+
+
+
  
 
 
