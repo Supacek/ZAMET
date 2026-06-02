@@ -366,7 +366,52 @@ document.getElementById("ua-nameday").innerHTML =
 
     uaNamedays[key] || "—";
 
-/* STÁTNÍ SVÁTEK */ document.getElementById("holiday").innerHTML = holidays[key] || "";    
+/* STÁTNÍ SVÁTKY */
+
+if(holidays[key]) {
+
+    document.getElementById("holiday-title").innerHTML =
+        "Dnes je státní svátek";
+
+    document.getElementById("holiday").innerHTML =
+        holidays[key];
+
+} else {
+
+    let nearestDate = "";
+    let nearestHoliday = "";
+
+    for (const date in holidays) {
+
+        const parts = date.split("-");
+
+        const holidayDate = new Date(
+            today.getFullYear(),
+            parts[1] - 1,
+            parts[0]
+        );
+
+        if(holidayDate >= today) {
+
+            nearestDate =
+                holidayDate.toLocaleDateString('cs-CZ', {
+                    day: 'numeric',
+                    month: 'long'
+                });
+
+            nearestHoliday =
+                holidays[date];
+
+            break;
+        }
+    }
+
+    document.getElementById("holiday-title").innerHTML =
+        "Nejbližší státní svátek";
+
+    document.getElementById("holiday").innerHTML =
+        nearestDate + "<br>" + nearestHoliday;
+}  
 
 </script>
 
