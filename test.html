@@ -1,4 +1,4 @@
-```html
+```html id="97vjlwm"
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -25,7 +25,7 @@ html, body {
 
     width: 100vw;
 
-    height: calc(100vh - 55px);
+    height: calc(100vh - 70px);
 
     display: flex;
 
@@ -43,6 +43,8 @@ html, body {
     height: 100%;
 
     object-fit: contain;
+
+    opacity: 1;
 
     transition: opacity 3s ease-in-out;
 
@@ -166,14 +168,27 @@ const slide = document.getElementById("slide");
 
 function showImage() {
 
+    /* FADE OUT */
+
     slide.style.opacity = 0;
 
+    /* POČKAT NA ZMIZENÍ */
+
     setTimeout(() => {
+
+        /* ZMĚNIT OBRÁZEK */
 
         slide.src =
             images[index] + "?v=" + Date.now();
 
-        slide.style.opacity = 1;
+        /* AŽ SE NAČTE */
+
+        slide.onload = () => {
+
+            /* FADE IN */
+
+            slide.style.opacity = 1;
+        };
 
         index++;
 
@@ -182,12 +197,14 @@ function showImage() {
             index = 0;
         }
 
-    }, 300);
+    }, 1500);
 }
+
+/* START */
 
 showImage();
 
-/* ČAS SLIDESHOW */
+/* INTERVAL */
 
 setInterval(showImage, 10000);
 
