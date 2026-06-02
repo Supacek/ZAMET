@@ -1,72 +1,81 @@
-```html
+```html id="k9m2x1"
 <!DOCTYPE html>
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
 
 <style>
+
 html, body {
     margin: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
     background: black;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-/* SLIDESHOW */
+/* HLAVNÍ OBRÁZEK */
 
-img {
+#content {
     width: 100vw;
-    height: 100vh;
+
+    height: calc(100vh - 70px);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: black;
+}
+
+#slide {
+    width: 100%;
+    height: 100%;
 
     object-fit: contain;
 
     transition: opacity 2s;
 }
 
-/* TICKER */
+/* SPODNÍ LIŠTA */
 
-.ticker-wrap {
-    position: fixed;
+#ticker-bar {
 
-    bottom: 0;
-    left: 0;
+    width: 100vw;
+    height: 70px;
 
-    width: 100%;
+    background: #000;
 
-    background: rgba(0,0,0,0.85);
+    border-top: 4px solid red;
 
     overflow: hidden;
 
-    height: 60px;
-
     display: flex;
     align-items: center;
-
-    border-top: 3px solid #e30613;
 }
 
-.ticker {
+/* BĚŽÍCÍ TEXT */
+
+#ticker {
+
     white-space: nowrap;
 
     color: white;
 
-    font-size: 32px;
+    font-size: 36px;
 
-    font-family: Arial, sans-serif;
+    font-family: Arial;
 
     font-weight: bold;
 
     padding-left: 100%;
 
-    animation: tickerMove 25s linear infinite;
+    animation: tickerMove 40s linear infinite;
 }
 
 @keyframes tickerMove {
+
     0% {
         transform: translateX(0);
     }
@@ -75,20 +84,34 @@ img {
         transform: translateX(-100%);
     }
 }
+
 </style>
 </head>
 
 <body>
 
-<img id="slide" src="">
+<!-- OBRÁZEK -->
 
-<div class="ticker-wrap">
-    <div class="ticker">
-        🔴 Hledáme nové kolegy • 
-        🔵 Nábor probíhá v Halenkově • 
-        🟢 Více informací na karierazamet.cz • 
-        🟡 Sledujte aktuální novinky společnosti ZAMET
+<div id="content">
+
+    <img id="slide" src="">
+
+</div>
+
+<!-- LIŠTA -->
+
+<div id="ticker-bar">
+
+    <div id="ticker">
+        🔴 Hokej tipovačka je ukončená • 🏆 1. místo: Daniel Vraj • 🥈 2. místo: Martin Orság • 🥉 3. místo: Renata Rajmicová, Helena Manaková a Jiří Tkadlec • 🟢 Gratulujeme výhercům!
+        🔴 Hledáme nové kolegy •
+        🔵 Kariéra ZAMET •
+        🟢 Více informací na karierazamet.cz •
+        🟡 Nástup možný ihned
+        
+
     </div>
+
 </div>
 
 <script>
