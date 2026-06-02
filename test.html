@@ -1,4 +1,4 @@
-```html id="k9m2x1"
+```html
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -14,12 +14,13 @@ html, body {
     background: black;
 }
 
-/* HLAVNÍ OBRÁZEK */
+/* HLAVNÍ OBLAST */
 
 #content {
+
     width: 100vw;
 
-    height: calc(100vh - 70px);
+    height: calc(100vh - 90px);
 
     display: flex;
 
@@ -29,7 +30,10 @@ html, body {
     background: black;
 }
 
+/* OBRÁZEK */
+
 #slide {
+
     width: 100%;
     height: 100%;
 
@@ -43,7 +47,8 @@ html, body {
 #ticker-bar {
 
     width: 100vw;
-    height: 50px;
+
+    height: 90px;
 
     background: #141b7b;
 
@@ -52,11 +57,11 @@ html, body {
     overflow: hidden;
 
     display: flex;
+
     align-items: center;
-    padding-bottom: 10px;
 }
 
-/* BĚŽÍCÍ TEXT */
+/* TEXT */
 
 #ticker {
 
@@ -64,16 +69,24 @@ html, body {
 
     color: white;
 
-    font-size: 36px;
+    font-size: 42px;
 
-    font-family: Arial;
+    font-family: Arial, sans-serif;
 
     font-weight: bold;
 
+    line-height: 90px;
+
     padding-left: 100%;
 
-    animation: tickerMove 40s linear infinite;
+    will-change: transform;
+
+    transform: translate3d(0,0,0);
+
+    animation: tickerMove 45s linear infinite;
 }
+
+/* ANIMACE */
 
 @keyframes tickerMove {
 
@@ -99,17 +112,21 @@ html, body {
 
 </div>
 
-<!-- LIŠTA -->
+<!-- BĚŽÍCÍ TEXT -->
 
 <div id="ticker-bar">
 
     <div id="ticker">
-        🔴 Hokej tipovačka je ukončená • 🏆 1. místo: Daniel Vraj • 🥈 2. místo: Martin Orság • 🥉 3. místo: Renata Rajmicová, Helena Manaková a Jiří Tkadlec • 🟢 Gratulujeme výhercům!
-        🔴 Hledáme nové kolegy •
-        🔵 Kariéra ZAMET •
-        🟢 Více informací na karierazamet.cz •
-        🟡 Nástup možný ihned
-        
+
+        Hokej tipovačka je ukončená •
+        1. místo: Daniel Vraj •
+        2. místo: Martin Orság •
+        3. místo: Renata Rajmicová, Helena Manaková a Jiří Tkadlec •
+        Gratulujeme výhercům •
+        Hledáme nové kolegy •
+        Kariéra ZAMET •
+        Více informací na karierazamet.cz •
+        Nástup možný ihned
 
     </div>
 
