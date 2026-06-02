@@ -7,11 +7,16 @@
 <style>
 
 html, body {
+
     margin: 0;
     width: 100%;
     height: 100%;
+
     overflow: hidden;
+
     background: black;
+
+    font-family: Arial, sans-serif;
 }
 
 /* HLAVNÍ OBLAST */
@@ -39,7 +44,9 @@ html, body {
 
     object-fit: contain;
 
-    transition: opacity 2s;
+    transition: opacity 1.5s ease-in-out;
+
+    background: black;
 }
 
 /* SPODNÍ LIŠTA */
@@ -52,7 +59,7 @@ html, body {
 
     background: #141b7b;
 
-    border-top: 4px solid red;
+    border-top: 4px solid #ff0000;
 
     overflow: hidden;
 
@@ -69,11 +76,11 @@ html, body {
 
     color: white;
 
-    font-size: 42px;
-
-    font-family: Arial, sans-serif;
+    font-size: 38px;
 
     font-weight: bold;
+
+    letter-spacing: 1px;
 
     padding-left: 100%;
 
@@ -95,11 +102,13 @@ html, body {
 @keyframes tickerMove {
 
     0% {
-        transform: translateX(0);
+
+        transform: translate3d(0,0,0);
     }
 
     100% {
-        transform: translateX(-100%);
+
+        transform: translate3d(-100%,0,0);
     }
 }
 
@@ -108,7 +117,7 @@ html, body {
 
 <body>
 
-<!-- OBRÁZEK -->
+<!-- OBRÁZKY -->
 
 <div id="content">
 
@@ -116,7 +125,7 @@ html, body {
 
 </div>
 
-<!-- BĚŽÍCÍ TEXT -->
+<!-- SPODNÍ TEXT -->
 
 <div id="ticker-bar">
 
@@ -138,12 +147,16 @@ html, body {
 
 <script>
 
+/* OBRÁZKY */
+
 const images = [
 
     "hledamekoleg.jpg",
     "fotbal.jpg"
 
 ];
+
+/* SLIDESHOW */
 
 let index = 0;
 
@@ -156,20 +169,23 @@ function showImage() {
     setTimeout(() => {
 
         slide.src =
-        images[index] + "?v=" + Date.now();
+            images[index] + "?v=" + Date.now();
 
         slide.style.opacity = 1;
 
         index++;
 
-        if(index >= images.length){
+        if(index >= images.length) {
+
             index = 0;
         }
 
-    }, 500);
+    }, 400);
 }
 
 showImage();
+
+/* ČAS SLIDESHOW */
 
 setInterval(showImage, 10000);
 
