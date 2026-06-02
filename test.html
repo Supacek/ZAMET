@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -16,6 +17,8 @@ html, body {
     align-items: center;
 }
 
+/* SLIDESHOW */
+
 img {
     width: 100vw;
     height: 100vh;
@@ -24,12 +27,69 @@ img {
 
     transition: opacity 2s;
 }
+
+/* TICKER */
+
+.ticker-wrap {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    background: rgba(0,0,0,0.85);
+
+    overflow: hidden;
+
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+
+    border-top: 3px solid #e30613;
+}
+
+.ticker {
+    white-space: nowrap;
+
+    color: white;
+
+    font-size: 32px;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: bold;
+
+    padding-left: 100%;
+
+    animation: tickerMove 25s linear infinite;
+}
+
+@keyframes tickerMove {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
 </style>
 </head>
 
 <body>
 
 <img id="slide" src="">
+
+<div class="ticker-wrap">
+    <div class="ticker">
+        🔴 Hledáme nové kolegy • 
+        🔵 Nábor probíhá v Halenkově • 
+        🟢 Více informací na karierazamet.cz • 
+        🟡 Sledujte aktuální novinky společnosti ZAMET
+    </div>
+</div>
 
 <script>
 
@@ -72,3 +132,4 @@ setInterval(showImage, 10000);
 
 </body>
 </html>
+```
