@@ -1,4 +1,4 @@
-```html id="97vjlwm"
+```html
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -17,15 +17,86 @@ html, body {
     background: black;
 
     font-family: Arial, sans-serif;
+
+    color: white;
 }
 
-/* HLAVNÍ OBLAST */
+/* HLAVNÍ LAYOUT */
 
-#content {
+#main {
+
+    display: flex;
 
     width: 100vw;
 
     height: calc(100vh - 70px);
+}
+
+/* LEVÝ PANEL */
+
+#sidebar {
+
+    width: 340px;
+
+    background: #0b0f3d;
+
+    border-right: 3px solid #ff0000;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+    align-items: center;
+
+    padding-top: 30px;
+
+    box-sizing: border-box;
+}
+
+/* DATUM */
+
+#date {
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+    margin-bottom: 30px;
+
+    text-align: center;
+}
+
+/* SVÁTEK */
+
+#nameday-title {
+
+    font-size: 24px;
+
+    color: #bbbbbb;
+
+    margin-bottom: 10px;
+}
+
+#nameday {
+
+    font-size: 42px;
+
+    font-weight: bold;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    padding: 0 20px;
+}
+
+/* PRAVÁ ČÁST */
+
+#content {
+
+    flex: 1;
 
     display: flex;
 
@@ -44,7 +115,7 @@ html, body {
 
     object-fit: contain;
 
-    opacity: 3;
+    opacity: 1;
 
     transition: opacity 2s ease-in-out;
 
@@ -121,11 +192,31 @@ html, body {
 
 <body>
 
-<!-- OBRÁZKY -->
+<!-- HLAVNÍ OBSAH -->
 
-<div id="content">
+<div id="main">
 
-    <img id="slide" src="">
+    <!-- LEVÝ PANEL -->
+
+    <div id="sidebar">
+
+        <div id="date"></div>
+
+        <div id="nameday-title">
+            Dnes má svátek
+        </div>
+
+        <div id="nameday"></div>
+
+    </div>
+
+    <!-- OBRÁZKY -->
+
+    <div id="content">
+
+        <img id="slide" src="">
+
+    </div>
 
 </div>
 
@@ -168,24 +259,14 @@ const slide = document.getElementById("slide");
 
 function showImage() {
 
-    /* FADE OUT */
-
     slide.style.opacity = 0;
 
-    /* POČKAT NA ZMIZENÍ */
-
     setTimeout(() => {
-
-        /* ZMĚNIT OBRÁZEK */
 
         slide.src =
             images[index] + "?v=" + Date.now();
 
-        /* AŽ SE NAČTE */
-
         slide.onload = () => {
-
-            /* FADE IN */
 
             slide.style.opacity = 1;
         };
@@ -200,13 +281,43 @@ function showImage() {
     }, 1500);
 }
 
-/* START */
-
 showImage();
 
-/* INTERVAL */
-
 setInterval(showImage, 10000);
+
+/* DATUM */
+
+const today = new Date();
+
+const options = {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+};
+
+document.getElementById("date").innerHTML =
+    today.toLocaleDateString('cs-CZ', options);
+
+/* SVÁTKY */
+
+const namedays = {
+
+    "1-1":"Nový rok",
+    "2-1":"Karina",
+    "3-1":"Radmila",
+    "4-1":"Diana",
+    "5-1":"Dalimil",
+    "6-1":"Tři králové"
+
+    /* DALŠÍ SVÁTKY můžeš doplnit */
+
+};
+
+const key =
+    today.getDate() + "-" + (today.getMonth()+1);
+
+document.getElementById("nameday").innerHTML =
+    namedays[key] || "—";
 
 </script>
 
