@@ -298,26 +298,7 @@ const options = {
 document.getElementById("date").innerHTML =
     today.toLocaleDateString('cs-CZ', options);
 
-/* SVÁTKY */
-
-const namedays = {
-
-    "1-1":"Nový rok",
-    "2-1":"Karina",
-    "3-1":"Radmila",
-    "4-1":"Diana",
-    "5-1":"Dalimil",
-    "6-1":"Tři králové"
-
-    /* DALŠÍ SVÁTKY můžeš doplnit */
-
-};
-
-const key =
-    today.getDate() + "-" + (today.getMonth()+1);
-
-document.getElementById("nameday").innerHTML =
-    namedays[key] || "—";
+/* SVÁTEK */ const key = today.getDate() + "-" + (today.getMonth()+1); document.getElementById("nameday").innerHTML = namedays[key] || "—";;
 
 </script>
 
