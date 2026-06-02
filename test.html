@@ -25,7 +25,7 @@ html, body {
 
     width: 100vw;
 
-    height: calc(100vh - 90px);
+    height: calc(100vh - 55px);
 
     display: flex;
 
@@ -44,7 +44,7 @@ html, body {
 
     object-fit: contain;
 
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 1.2s ease-in-out;
 
     background: black;
 }
@@ -55,17 +55,17 @@ html, body {
 
     width: 100vw;
 
-    height: 90px;
+    height: 55px;
 
     background: #141b7b;
 
-    border-top: 4px solid #ff0000;
+    border-top: 3px solid #ff0000;
 
     overflow: hidden;
 
     display: flex;
 
-    align-items: center;
+    align-items: flex-start;
 }
 
 /* TEXT */
@@ -76,7 +76,7 @@ html, body {
 
     color: white;
 
-    font-size: 38px;
+    font-size: 30px;
 
     font-weight: bold;
 
@@ -84,9 +84,11 @@ html, body {
 
     padding-left: 100%;
 
+    padding-top: 4px;
+
     display: flex;
 
-    align-items: center;
+    align-items: flex-start;
 
     height: 100%;
 
@@ -94,7 +96,7 @@ html, body {
 
     transform: translate3d(0,0,0);
 
-    animation: tickerMove 45s linear infinite;
+    animation: tickerMove 22s linear infinite;
 }
 
 /* ANIMACE */
@@ -180,7 +182,7 @@ function showImage() {
             index = 0;
         }
 
-    }, 400);
+    }, 300);
 }
 
 showImage();
