@@ -286,6 +286,38 @@ body {
 }
 
 /* ===================================================== */
+/* POČASÍ */
+/* ===================================================== */
+
+#weather-title {
+
+    font-size: clamp(18px, 1.2vw, 28px);
+
+    color: #bbbbbb;
+
+    margin-top: 25px;
+
+    margin-bottom: 10px;
+
+    text-align: center;
+}
+
+#weather {
+
+    font-size: clamp(24px, 2vw, 42px);
+
+    font-weight: bold;
+
+    color: #66ccff;
+
+    text-align: center;
+
+    line-height: 1.4;
+
+    padding: 0 10px;
+}
+
+/* ===================================================== */
 /* ANIMACE */
 /* ===================================================== */
 
@@ -381,6 +413,20 @@ body {
             <div id="vacation"></div>
 
         </div>
+
+<!-- POČASÍ -->
+
+<div>
+
+    <div id="weather-title">
+        Počasí Halenkov 756 03
+    </div>
+
+    <div id="weather">
+        Načítání...
+    </div>
+
+</div>
 
     </div>
 
@@ -590,6 +636,58 @@ document.getElementById("vacation").innerHTML =
     vacationDays +
 
     " dní";
+
+
+/* ===================================================== */
+/* POČASÍ */
+/* ===================================================== */
+
+const apiKey = "097e577eac9403ee6dc032311afb6fe4";
+
+function loadWeather() {
+
+    fetch(
+
+        `https://api.openweathermap.org/data/2.5/weather?zip=75603,cz&units=metric&lang=cz&appid=${apiKey}`
+
+    )
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        const temp =
+
+            Math.round(data.main.temp);
+
+        const desc =
+
+            data.weather[0].description;
+
+        document.getElementById("weather").innerHTML =
+
+            temp + "°C" +
+
+            "<br>" +
+
+            desc;
+    })
+
+    .catch(() => {
+
+        document.getElementById("weather").innerHTML =
+
+            "Počasí nedostupné";
+    });
+}
+
+/* PRVNÍ NAČTENÍ */
+
+loadWeather();
+
+/* AKTUALIZACE KAŽDÝCH 30 MINUT */
+
+setInterval(loadWeather, 1800000);    
 
 </script>
 
