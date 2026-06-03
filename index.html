@@ -286,6 +286,38 @@ body {
 }
 
 /* ===================================================== */
+/* POČASÍ */
+/* ===================================================== */
+
+#weather-title {
+
+    font-size: clamp(18px, 1.2vw, 28px);
+
+    color: #bbbbbb;
+
+    margin-top: 25px;
+
+    margin-bottom: 10px;
+
+    text-align: center;
+}
+
+#weather {
+
+    font-size: clamp(24px, 2vw, 42px);
+
+    font-weight: bold;
+
+    color: #66ccff;
+
+    text-align: center;
+
+    line-height: 1.4;
+
+    padding: 0 10px;
+}
+
+/* ===================================================== */
 /* ANIMACE */
 /* ===================================================== */
 
@@ -382,6 +414,20 @@ body {
 
         </div>
 
+<!-- POČASÍ -->
+
+<div>
+
+    <div id="weather-title">
+        Počasí Halenkov 756 03
+    </div>
+
+    <div id="weather">
+        Načítání...
+    </div>
+
+</div>
+
     </div>
 
     <!-- OBRÁZKY -->
@@ -410,19 +456,40 @@ body {
 
 <div id="ticker-bar">
 
-    <div id="ticker">
+<div id="ticker">
 
-        Hokej tipovačka je ukončená •
-        1. místo: Daniel Vraj •
-        2. místo: Martin Orság •
-        3. místo: Renata Rajmicová, Helena Manaková a Jiří Tkadlec •
-        Gratulujeme výhercům •
-        Hledáme nové kolegy •
-        Kariéra ZAMET •
-        Více informací na karierazamet.cz •
-        Nástup možný ihned
+    Hokej tipovačka je ukončená
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-    </div>
+    1. místo: Daniel Vraj
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    2. místo: Martin Orság
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    3. místo:
+    Renata Rajmicová,
+    Helena Manaková
+    a Jiří Tkadlec
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    Gratulujeme výhercům
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    Hledáme nové kolegy
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    Kariéra ZAMET
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    Více informací:
+    karierazamet.cz
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    Nástup možný ihned
+
+</div>
+
 
 </div>
 
@@ -590,6 +657,61 @@ document.getElementById("vacation").innerHTML =
     vacationDays +
 
     " dní";
+
+/* ===================================================== */
+/* POČASÍ */
+/* ===================================================== */
+
+const apiKey = "097e577eac9403ee6dc032311afb6fe4";
+
+function loadWeather() {
+
+    fetch(
+
+        `https://api.openweathermap.org/data/2.5/weather?lat=49.317&lon=18.147&units=metric&lang=cz&appid=${apiKey}`
+
+    )
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        console.log(data);
+
+        const temp =
+
+            Math.round(data.main.temp);
+
+        const desc =
+
+            data.weather[0].description;
+
+        document.getElementById("weather").innerHTML =
+
+            temp + "°C" +
+
+            "<br>" +
+
+            desc;
+    })
+
+    .catch(error => {
+
+        console.log(error);
+
+        document.getElementById("weather").innerHTML =
+
+            "Počasí nedostupné";
+    });
+}
+
+/* PRVNÍ NAČTENÍ */
+
+loadWeather();
+
+/* AKTUALIZACE */
+
+setInterval(loadWeather, 1800000);
 
 </script>
 
