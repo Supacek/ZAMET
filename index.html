@@ -1,14 +1,21 @@
-```html id="97vjlwm"
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
+
 <meta charset="UTF-8">
 
 <style>
 
-html, body {
+/* ===================================================== */
+/* ZÁKLAD */
+/* ===================================================== */
+
+html,
+body {
 
     margin: 0;
+
     width: 100%;
     height: 100%;
 
@@ -17,41 +24,181 @@ html, body {
     background: black;
 
     font-family: Arial, sans-serif;
+
+    color: white;
 }
 
-/* HLAVNÍ OBLAST */
+/* ===================================================== */
+/* HLAVNÍ LAYOUT */
+/* ===================================================== */
 
-#content {
+#main {
 
+    display: flex;
+    background: #0b0f3d;
     width: 100vw;
 
     height: calc(100vh - 70px);
+}
+
+/* ===================================================== */
+/* LEVÝ PANEL */
+/* ===================================================== */
+
+#sidebar {
+
+    width: 340px;
+
+    background: #0b0f3d;
+
+    border-right: 3px solid #ff0000;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding-top: 20px;
+
+    box-sizing: border-box;
+}
+
+/* ===================================================== */
+/* DATUM */
+/* ===================================================== */
+
+#date {
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+/* ===================================================== */
+/* NADPISY */
+/* ===================================================== */
+
+#nameday-title,
+#ua-title,
+#holiday-title {
+
+    font-size: 22px;
+
+    color: #bbbbbb;
+
+    margin-bottom: 10px;
+
+    text-align: center;
+}
+
+#ua-title,
+#holiday-title {
+
+    margin-top: 40px;
+}
+
+/* ===================================================== */
+/* HODNOTY */
+/* ===================================================== */
+
+#nameday {
+
+    font-size: 42px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    padding: 0 20px;
+}
+
+#ua-nameday {
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+    color: #ffd700;
+
+    text-align: center;
+
+    padding: 0 20px;
+}
+
+#holiday {
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #ff5555;
+
+    text-align: center;
+
+    padding: 0 20px;
+
+    line-height: 1.3;
+}
+/* ===================================================== */
+/* odpočet do vánoc */
+/* ===================================================== */
+
+    #countdown-title { font-size: 22px; color: #bbbbbb; margin-top: 40px; margin-bottom: 10px; text-align: center; } #countdown { font-size: 38px; font-weight: bold; color: #66ff99; text-align: center; line-height: 1.3; }
+/* ===================================================== */
+/* odpočet do celozávodky */
+/* ===================================================== */
+    #vacation-title { font-size: 22px; color: #bbbbbb; margin-top: 40px; margin-bottom: 10px; text-align: center; } #vacation { font-size: 26px; font-weight: bold; color: #66ccff; text-align: center; line-height: 1.4; padding: 0 15px; }
+/* ===================================================== */
+/* PRAVÁ ČÁST */
+/* ===================================================== */
+
+#content {
+
+    flex: 1;
+
+    display: flex;
+
+    background: black;
+}
+
+/* ===================================================== */
+/* OBRÁZKY */
+/* ===================================================== */
+
+.image-box {
+
+    flex: 1;
 
     display: flex;
 
     justify-content: center;
+
     align-items: center;
+
+    overflow: hidden;
 
     background: black;
 }
 
-/* OBRÁZEK */
-
-#slide {
+.image-box img {
 
     width: 100%;
+
     height: 100%;
 
     object-fit: contain;
 
-    opacity: 3;
-
-    transition: opacity 2s ease-in-out;
-
     background: black;
 }
 
+/* ===================================================== */
 /* SPODNÍ LIŠTA */
+/* ===================================================== */
 
 #ticker-bar {
 
@@ -59,7 +206,7 @@ html, body {
 
     height: 70px;
 
-    background: #141b7b;
+    background: #0b0f3d;
 
     border-top: 3px solid #ff0000;
 
@@ -70,7 +217,9 @@ html, body {
     align-items: flex-start;
 }
 
-/* TEXT */
+/* ===================================================== */
+/* BĚŽÍCÍ TEXT */
+/* ===================================================== */
 
 #ticker {
 
@@ -78,15 +227,15 @@ html, body {
 
     color: white;
 
-    font-size: 30px;
+    font-size: 35px;
 
     font-weight: bold;
 
     letter-spacing: 1px;
 
-    padding-left: 100%;
+    padding-top: 6px;
 
-    padding-top: 4px;
+    padding-left: 100%;
 
     display: flex;
 
@@ -101,7 +250,9 @@ html, body {
     animation: tickerMove 40s linear infinite;
 }
 
+/* ===================================================== */
 /* ANIMACE */
+/* ===================================================== */
 
 @keyframes tickerMove {
 
@@ -117,19 +268,76 @@ html, body {
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- OBRÁZKY -->
+<!-- ================================================= -->
+<!-- HLAVNÍ OBSAH -->
+<!-- ================================================= -->
 
-<div id="content">
+<div id="main">
 
-    <img id="slide" src="">
+    <!-- LEVÝ PANEL -->
+
+    <div id="sidebar">
+
+        <!-- DATUM -->
+
+        <div id="date"></div>
+
+        <!-- ČESKÝ SVÁTEK -->
+
+        <div id="nameday-title">
+            Dnes má svátek
+        </div>
+
+        <div id="nameday"></div>
+
+        <!-- UKRAJINSKÝ SVÁTEK -->
+
+        <div id="ua-title">
+            Українське свято
+        </div>
+
+        <div id="ua-nameday"></div>
+
+        <!-- STÁTNÍ SVÁTEK -->
+
+        <div id="holiday-title">
+            Nejbližší státní svátek
+        </div>
+
+        <div id="holiday"></div>
+    <!-- ODPOČET --> <div id="countdown-title"> Vánoce za </div> <div id="countdown"></div>
+        <div id="countdown"></div>
+        <!-- CELOZÁVODNÍ DOVOLENÁ --> <div id="vacation-title"> Celozávodní dovolená </div> <div id="vacation"></div>
+    </div>
+
+    <!-- OBRÁZKY -->
+
+    <div id="content">
+
+        <div class="image-box">
+
+            <img src="hledamekoleg.jpg">
+
+        </div>
+
+        <div class="image-box">
+
+            <img src="fotbal.jpg">
+
+        </div>
+
+    </div>
 
 </div>
 
-<!-- SPODNÍ TEXT -->
+<!-- ================================================= -->
+<!-- SPODNÍ LIŠTA -->
+<!-- ================================================= -->
 
 <div id="ticker-bar">
 
@@ -149,67 +357,180 @@ html, body {
 
 </div>
 
+<!-- ================================================= -->
+<!-- SVÁTKY -->
+<!-- ================================================= -->
+
+<script src="svatek.js"></script>
+
 <script>
 
-/* OBRÁZKY */
+/* ===================================================== */
+/* DATUM */
+/* ===================================================== */
 
-const images = [
+const today = new Date();
 
-    "hledamekoleg.jpg",
-    "fotbal.jpg"
+const options = {
 
-];
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+};
 
-/* SLIDESHOW */
+document.getElementById("date").innerHTML =
 
-let index = 0;
+    today.toLocaleDateString('cs-CZ', options);
 
-const slide = document.getElementById("slide");
+/* ===================================================== */
+/* KLÍČ DATA */
+/* ===================================================== */
 
-function showImage() {
+const key =
 
-    /* FADE OUT */
+    today.getDate() + "-" + (today.getMonth() + 1);
 
-    slide.style.opacity = 0;
+/* ===================================================== */
+/* ČESKÝ SVÁTEK */
+/* ===================================================== */
 
-    /* POČKAT NA ZMIZENÍ */
+document.getElementById("nameday").innerHTML =
 
-    setTimeout(() => {
+    namedays[key] || "—";
 
-        /* ZMĚNIT OBRÁZEK */
+/* ===================================================== */
+/* UKRAJINSKÝ SVÁTEK */
+/* ===================================================== */
 
-        slide.src =
-            images[index] + "?v=" + Date.now();
+document.getElementById("ua-nameday").innerHTML =
 
-        /* AŽ SE NAČTE */
+    uaNamedays[key] || "—";
 
-        slide.onload = () => {
+/* ===================================================== */
+/* STÁTNÍ SVÁTKY */
+/* ===================================================== */
 
-            /* FADE IN */
+if(holidays[key]) {
 
-            slide.style.opacity = 1;
-        };
+    document.getElementById("holiday-title").innerHTML =
 
-        index++;
+        "Dnes je státní svátek";
 
-        if(index >= images.length) {
+    document.getElementById("holiday").innerHTML =
 
-            index = 0;
+        holidays[key];
+
+} else {
+
+    let nearestDate = "";
+
+    let nearestHoliday = "";
+
+    for(const date in holidays) {
+
+        const parts = date.split("-");
+
+        const holidayDate = new Date(
+
+            today.getFullYear(),
+
+            parts[1] - 1,
+
+            parts[0]
+        );
+
+        if(holidayDate >= today) {
+
+            nearestDate =
+
+                holidayDate.toLocaleDateString('cs-CZ', {
+
+                    day: 'numeric',
+
+                    month: 'long'
+                });
+
+            nearestHoliday =
+
+                holidays[date];
+
+            break;
         }
+    }
 
-    }, 1500);
+    document.getElementById("holiday-title").innerHTML =
+
+        "Nejbližší státní svátek";
+
+    document.getElementById("holiday").innerHTML =
+
+        nearestDate + "<br>" + nearestHoliday;
 }
 
-/* START */
+/* ===================================================== */
+/* ODPOČET DO VÁNOC */
+/* ===================================================== */
 
-showImage();
+const christmas = new Date(
 
-/* INTERVAL */
+    today.getFullYear(),
 
-setInterval(showImage, 10000);
+    11,
+
+    24
+);
+
+const diff = christmas - today;
+
+const days = Math.ceil(
+
+    diff / (1000 * 60 * 60 * 24)
+);
+
+document.getElementById("countdown").innerHTML =
+
+    days + " dní";
+
+
+/* ===================================================== */
+/* CELOZÁVODNÍ DOVOLENÁ */
+/* ===================================================== */
+
+const vacationStart = new Date(
+
+    2026,
+    6,
+    27
+);
+
+const vacationEnd = new Date(
+
+    2026,
+    7,
+    9
+);
+
+const vacationDiff =
+
+    vacationStart - today;
+
+const vacationDays = Math.ceil(
+
+    vacationDiff / (1000 * 60 * 60 * 24)
+);
+
+document.getElementById("vacation").innerHTML =
+
+    "27.7.2026 → 9.8.2026" +
+
+    "<br>za " +
+
+    vacationDays +
+
+    " dní";
 
 </script>
 
 </body>
+
 </html>
-```
