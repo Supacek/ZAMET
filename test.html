@@ -658,7 +658,6 @@ document.getElementById("vacation").innerHTML =
 
     " dní";
 
-
 /* ===================================================== */
 /* POČASÍ */
 /* ===================================================== */
@@ -669,13 +668,15 @@ function loadWeather() {
 
     fetch(
 
-        `https://api.openweathermap.org/data/2.5/weather?q=Halenkov,cz&units=metric&lang=cz&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=49.317&lon=18.147&units=metric&lang=cz&appid=${apiKey}`
 
     )
 
     .then(response => response.json())
 
     .then(data => {
+
+        console.log(data);
 
         const temp =
 
@@ -694,7 +695,9 @@ function loadWeather() {
             desc;
     })
 
-    .catch(() => {
+    .catch(error => {
+
+        console.log(error);
 
         document.getElementById("weather").innerHTML =
 
@@ -706,9 +709,9 @@ function loadWeather() {
 
 loadWeather();
 
-/* AKTUALIZACE KAŽDÝCH 30 MINUT */
+/* AKTUALIZACE */
 
-setInterval(loadWeather, 1800000);    
+setInterval(loadWeather, 1800000);
 
 </script>
 
