@@ -560,7 +560,7 @@ const slides = [
     }
 
 ];
-
+let timer = null;
 let currentSlide = 0;
 
 const frame = document.getElementById("contentFrame");
@@ -625,18 +625,23 @@ function showSlide() {
 
     document.getElementById("slideTimer").innerHTML = countdown;
 
-    const timer = setInterval(() => {
+    if (timer) {
 
-        countdown--;
+    clearInterval(timer);
+}
 
-        document.getElementById("slideTimer").innerHTML = countdown;
+timer = setInterval(() => {
 
-        if (countdown <= 0) {
+    countdown--;
 
-            clearInterval(timer);
-        }
+    document.getElementById("slideTimer").innerHTML = countdown;
 
-    }, 1000);
+    if (countdown <= 0) {
+
+        clearInterval(timer);
+    }
+
+}, 1000);
 
     /* ================================================= */
     /* DALŠÍ OBSAH */
