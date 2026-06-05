@@ -313,6 +313,52 @@ body {
         transform: translateX(-100%);
     }
 }
+/* ===================================================== */
+/* TIMER */
+/* ===================================================== */
+    #slideTimer {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 15px;
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.7);
+
+    border: 2px solid white;
+
+    color: white;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+}
+
+#content {
+
+    position: relative;
+
+    flex: 1;
+
+    display: flex;
+
+    background: black;
+}
 
 </style>
 
@@ -413,6 +459,15 @@ body {
     <!-- KONTENT -->
 
     <div id="content">
+        <div id="slideTimer">
+        20
+        </div>
+        
+        <iframe
+            id="contentFrame"
+            src=""
+            frameborder="0">
+        </iframe>   
 
     <iframe
         id="contentFrame"
@@ -796,6 +851,23 @@ function loadWeather() {
             "Počasí nedostupné";
     });
 }
+/* TIMER */
+    let countdown = slide.duration;
+
+document.getElementById("slideTimer").innerHTML = countdown;
+
+const timer = setInterval(() => {
+
+    countdown--;
+
+    document.getElementById("slideTimer").innerHTML = countdown;
+
+    if(countdown <= 0) {
+
+        clearInterval(timer);
+    }
+
+}, 1000);
 
 /* PRVNÍ NAČTENÍ */
 
