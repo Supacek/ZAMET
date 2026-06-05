@@ -430,23 +430,17 @@ body {
 
     </div>
 
-    <!-- OBRÁZKY -->
+    <!-- KONTENT -->
 
     <div id="content">
 
-        <div class="image-box">
+    <iframe
+        id="contentFrame"
+        src=""
+        frameborder="0">
+    </iframe>
 
-            <img src="hledamekoleg.jpg">
-
-        </div>
-
-        <div class="image-box">
-
-            <img src="fotbal.jpg">
-
-        </div>
-
-    </div>
+</div>
 
 </div>
 
@@ -500,7 +494,36 @@ body {
 <script src="svatek.js"></script>
 
 <script>
+/* ===================================================== */
+/* SLIDE OBSAH */
+/* ===================================================== */
+    const slides = [
 
+    {
+        url: "hledamekoleg.jpg",
+        type: "image",
+        duration: 20
+    },
+
+    {
+        url: "fotbal.jpg",
+        type: "image",
+        duration: 20
+    },
+
+    {
+        url: "http://10.111.10.37:92/zamet_layout?pdf_name=Vranca_novahala.pdf&edit=0",
+        type: "iframe",
+        duration: 50
+    },
+
+    {
+        url: "http://10.111.10.37:92/display?display_id=2",
+        type: "iframe",
+        duration: 150
+    }
+
+];
 /* ===================================================== */
 /* DATUM */
 /* ===================================================== */
