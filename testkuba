@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+
+<meta charset="UTF-8">
+
+<style>
+
+/* ===================================================== */
+/* ZÁKLAD */
+/* ===================================================== */
+
+html,
+body {
+
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: black;
+
+    font-family: Arial, sans-serif;
+
+    color: white;
+}
+
+/* ===================================================== */
+/* HLAVNÍ LAYOUT */
+/* ===================================================== */
+
+#main {
+
+    display: flex;
+
+    width: 100vw;
+
+    height: calc(100vh - 70px);
+
+    background: #0b0f3d;
+}
+
+/* ===================================================== */
+/* LEVÝ PANEL */
+/* ===================================================== */
+
+#sidebar {
+
+    width: 22vw;
+
+    min-width: 340px;
+
+    max-width: 520px;
+
+    background: #0b0f3d;
+
+    border-right: 3px solid #ff0000;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: space-evenly;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+}
+
+/* ===================================================== */
+/* DATUM */
+/* ===================================================== */
+
+#date {
+
+    font-size: clamp(28px, 2vw, 48px);
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
+/* ===================================================== */
+/* NADPISY */
+/* ===================================================== */
+
+#nameday-title,
+#ua-title,
+#holiday-title,
+#countdown-title,
+#vacation-title {
+
+    font-size: clamp(18px, 1.2vw, 28px);
+
+    color: #bbbbbb;
+
+    margin-bottom: 10px;
+
+    text-align: center;
+
+    margin-top: 25px;
+}
+
+/* ===================================================== */
+/* ČESKÝ SVÁTEK */
+/* ===================================================== */
+
+#nameday {
+
+    font-size: clamp(32px, 2.5vw, 60px);
+
+    font-weight: bold;
+
+    text-align: center;
+
+    padding: 0 20px;
+}
+
+/* ===================================================== */
+/* UKRAJINSKÝ SVÁTEK */
+/* ===================================================== */
+
+#ua-nameday {
+
+    font-size: clamp(26px, 2vw, 50px);
+
+    font-weight: bold;
+
+    color: #ffd700;
+
+    text-align: center;
+
+    padding: 0 20px;
+}
+
+/* ===================================================== */
+/* STÁTNÍ SVÁTEK */
+/* ===================================================== */
+
+#holiday {
+
+    font-size: clamp(18px, 1.3vw, 34px);
+
+    font-weight: bold;
+
+    color: #ff5555;
+
+    text-align: center;
+
+    line-height: 1.4;
+
+    padding: 0 20px;
+}
+
+/* ===================================================== */
+/* VÁNOCE */
+/* ===================================================== */
+
+#countdown {
+
+    font-size: clamp(24px, 2vw, 44px);
+
+    font-weight: bold;
+
+    color: #66ff99;
+
+    text-align: center;
+
+    line-height: 1.3;
+}
+
+/* ===================================================== */
+/* CELOZÁVODNÍ */
+/* ===================================================== */
+
+#vacation {
+
+    font-size: clamp(20px, 1.6vw, 36px);
+
+    font-weight: bold;
+
+    color: #66ccff;
+
+    text-align: center;
+
+    line-height: 1.4;
+
+    padding: 0 15px;
+}
+
+/* ===================================================== */
+/* PRAVÁ ČÁST */
+/* ===================================================== */
+
+#content {
+
+    flex: 1;
+
+    display: flex;
+
+    background: black;
+}
+
+/* ===================================================== */
+/* OBRÁZKY */
+/* ===================================================== */
+
+.image-box {
+
+    flex: 1;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background: black;
+}
+
+.image-box img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    background: black;
+}
+
+/* ===================================================== */
+/* SPODNÍ LIŠTA */
+/* ===================================================== */
+
+#ticker-bar {
+
+    width: 100vw;
+
+    height: 70px;
+
+    background: #0b0f3d;
+
+    border-top: 3px solid #ff0000;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: flex-start;
+}
+
+/* ===================================================== */
+/* BĚŽÍCÍ TEXT */
+/* ===================================================== */
+
+#ticker {
+
+    white-space: nowrap;
+
+    color: white;
+
+    font-size: clamp(24px, 1.6vw, 42px);
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    padding-top: 6px;
+
+    padding-left: 100%;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    height: 100%;
+
+    animation: tickerMove 40s linear infinite;
+}
+
+/* ===================================================== */
+/* POČASÍ */
+/* ===================================================== */
+
+#weather-title {
+
+    font-size: clamp(18px, 1.2vw, 28px);
+
+    color: #bbbbbb;
+
+    margin-top: 25px;
+
+    margin-bottom: 10px;
+
+    text-align: center;
+}
+
+#weather {
+
+    font-size: clamp(24px, 2vw, 42px);
+
+    font-weight: bold;
+
+    color: #66ccff;
+
+    text-align: center;
+
+    line-height: 1.4;
+
+    padding: 0 10px;
+}
+
+/* ===================================================== */
+/* ANIMACE */
+/* ===================================================== */
+
+@keyframes tickerMove {
+
+    0% {
+
+        transform: translateX(0);
+    }
+
+    100% {
+
+        transform: translateX(-100%);
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ================================================= -->
+<!-- HLAVNÍ OBSAH -->
+<!-- ================================================= -->
+
+<div id="main">
+
+    <!-- LEVÝ PANEL -->
+
+    <div id="sidebar">
+
+        <!-- DATUM -->
+
+        <div id="date"></div>
+
+        <!-- ČESKÝ SVÁTEK -->
+
+        <div>
+
+            <div id="nameday-title">
+                Dnes má svátek
+            </div>
+
+            <div id="nameday"></div>
+
+        </div>
+
+        <!-- UKRAJINSKÝ SVÁTEK -->
+
+        <div>
+
+            <div id="ua-title">
+                Ukrajinský svátek
+            </div>
+
+            <div id="ua-nameday"></div>
+
+        </div>
+
+        <!-- STÁTNÍ SVÁTEK -->
+
+        <div>
+
+            <div id="holiday-title">
+                Nejbližší státní svátek
+            </div>
+
+            <div id="holiday"></div>
+
+        </div>
+
+        <!-- VÁNOCE -->
+
+        <div>
+
+            <div id="countdown-title">
+                Vánoce za
+            </div>
+
+            <div id="countdown"></div>
+
+        </div>
+
+        <!-- CELOZÁVODNÍ -->
+
+        <div>
+
+            <div id="vacation-title">
+                Celozávodní dovolená
+            </div>
+
+            <div id="vacation"></div>
+
+        </div>
+
+<!-- POČASÍ -->
+
+<div>
+
+    <div id="weather-title">
+        Počasí Halenkov 756 03
+    </div>
+
+    <div id="weather">
+        Načítání...
+    </div>
+
+</div>
+
+    </div>
+
+    <!-- OBRÁZKY -->
+
+    <div id="content">
+
+        <div class="image-box">
+
+            <img src="hledamekoleg.jpg">
+
+        </div>
+
+        <div class="image-box">
+
+            <img src="fotbal.jpg">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- SPODNÍ LIŠTA -->
+<!-- ================================================= -->
+
+<div id="ticker-bar">
+
+<div id="ticker">
+
+    Hokej tipovačka je ukončená
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    1. místo: Daniel Vraj
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    2. místo: Martin Orság
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    3. místo:
+    Renata Rajmicová,
+    Helena Manaková
+    a Jiří Tkadlec
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    Gratulujeme výhercům
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    Hledáme nové kolegy
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    Kariéra ZAMET
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    Více informací:
+    karierazamet.cz
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    Nástup možný ihned
+
+</div>
+
+
+</div>
+
+<!-- ================================================= -->
+<!-- SVÁTKY -->
+<!-- ================================================= -->
+
+<script src="svatek.js"></script>
+
+<script>
+
+/* ===================================================== */
+/* DATUM */
+/* ===================================================== */
+
+const today = new Date();
+
+document.getElementById("date").innerHTML =
+
+    today.toLocaleDateString('cs-CZ', {
+
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+
+/* ===================================================== */
+/* KLÍČ DATA */
+/* ===================================================== */
+
+const key =
+
+    today.getDate() + "-" + (today.getMonth() + 1);
+
+/* ===================================================== */
+/* ČESKÝ SVÁTEK */
+/* ===================================================== */
+
+document.getElementById("nameday").innerHTML =
+
+    namedays[key] || "—";
+
+/* ===================================================== */
+/* UKRAJINSKÝ SVÁTEK */
+/* ===================================================== */
+
+document.getElementById("ua-nameday").innerHTML =
+
+    uaNamedays[key] || "—";
+
+/* ===================================================== */
+/* STÁTNÍ SVÁTKY */
+/* ===================================================== */
+
+if(holidays[key]) {
+
+    document.getElementById("holiday-title").innerHTML =
+
+        "Dnes je státní svátek";
+
+    document.getElementById("holiday").innerHTML =
+
+        holidays[key];
+
+} else {
+
+    let nearestDate = "";
+    let nearestHoliday = "";
+
+    for(const date in holidays) {
+
+        const parts = date.split("-");
+
+        const holidayDate = new Date(
+
+            today.getFullYear(),
+
+            parts[1] - 1,
+
+            parts[0]
+        );
+
+        if(holidayDate >= today) {
+
+            nearestDate =
+
+                holidayDate.toLocaleDateString('cs-CZ', {
+
+                    day: 'numeric',
+                    month: 'long'
+                });
+
+            nearestHoliday = holidays[date];
+
+            break;
+        }
+    }
+
+    document.getElementById("holiday-title").innerHTML =
+
+        "Nejbližší státní svátek";
+
+    document.getElementById("holiday").innerHTML =
+
+        nearestDate + "<br>" + nearestHoliday;
+}
+
+/* ===================================================== */
+/* ODPOČET DO VÁNOC */
+/* ===================================================== */
+
+const christmas = new Date(
+
+    today.getFullYear(),
+
+    11,
+
+    24
+);
+
+const christmasDiff = christmas - today;
+
+const christmasDays = Math.ceil(
+
+    christmasDiff / (1000 * 60 * 60 * 24)
+);
+
+document.getElementById("countdown").innerHTML =
+
+    christmasDays + " dní";
+
+/* ===================================================== */
+/* CELOZÁVODNÍ DOVOLENÁ */
+/* ===================================================== */
+
+const vacationStart = new Date(
+
+    2026,
+    6,
+    27
+);
+
+const vacationEnd = new Date(
+
+    2026,
+    7,
+    9
+);
+
+const vacationDiff =
+
+    vacationStart - today;
+
+const vacationDays = Math.ceil(
+
+    vacationDiff / (1000 * 60 * 60 * 24)
+);
+
+document.getElementById("vacation").innerHTML =
+
+    "27.7.2026 → 9.8.2026" +
+
+    "<br>za " +
+
+    vacationDays +
+
+    " dní";
+
+/* ===================================================== */
+/* POČASÍ */
+/* ===================================================== */
+
+const apiKey = "097e577eac9403ee6dc032311afb6fe4";
+
+function loadWeather() {
+
+    fetch(
+
+        `https://api.openweathermap.org/data/2.5/weather?lat=49.317&lon=18.147&units=metric&lang=cz&appid=${apiKey}`
+
+    )
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        console.log(data);
+
+        const temp =
+
+            Math.round(data.main.temp);
+
+        const desc =
+
+            data.weather[0].description;
+
+        document.getElementById("weather").innerHTML =
+
+            temp + "°C" +
+
+            "<br>" +
+
+            desc;
+    })
+
+    .catch(error => {
+
+        console.log(error);
+
+        document.getElementById("weather").innerHTML =
+
+            "Počasí nedostupné";
+    });
+}
+
+/* PRVNÍ NAČTENÍ */
+
+loadWeather();
+
+/* AKTUALIZACE */
+
+setInterval(loadWeather, 1800000);
+
+</script>
+
+</body>
+
+</html>
