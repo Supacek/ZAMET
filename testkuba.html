@@ -568,6 +568,12 @@ const frame = document.getElementById("contentFrame");
 function showSlide() {
 
     const slide = slides[currentSlide];
+    console.log(
+        currentSlide,
+        slide.type,
+        slide.url,
+        slide.duration
+    );
 
     if (slide.type === "image") {
 
