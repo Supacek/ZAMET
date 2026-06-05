@@ -565,7 +565,15 @@ function showSlide() {
 
     } else {
 
-        frame.src = slide.url;
+        try {
+
+    frame.src = slide.url;
+
+} catch {
+
+    console.log("Nelze načíst:", slide.url);
+
+}
     }
 
     setTimeout(() => {
