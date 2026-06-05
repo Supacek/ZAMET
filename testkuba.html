@@ -176,15 +176,13 @@ body {
 /* ===================================================== */
 /* OKNO PRO OBSAH*/
 /* ===================================================== */
-    #contentFrame {
+#contentFrame {
 
     width: 100%;
-
     height: 100%;
-
     border: none;
 
-    background: white;
+    background: black;
 }
 /* ===================================================== */
 /* CELOZÁVODNÍ */
@@ -511,6 +509,34 @@ body {
 /* PŘEHRÁVAČ OBSAHU */
 /* ===================================================== */
 
+const slides = [
+
+    {
+        url: "hledamekoleg.jpg",
+        type: "image",
+        duration: 20
+    },
+
+    {
+        url: "fotbal.jpg",
+        type: "image",
+        duration: 20
+    },
+
+    {
+        url: "http://10.111.10.37:92/zamet_layout?pdf_name=Vranca_novahala.pdf&edit=0",
+        type: "iframe",
+        duration: 50
+    },
+
+    {
+        url: "http://10.111.10.37:92/display?display_id=2",
+        type: "iframe",
+        duration: 150
+    }
+
+];
+
 let currentSlide = 0;
 
 const frame = document.getElementById("contentFrame");
@@ -519,29 +545,48 @@ function showSlide() {
 
     const slide = slides[currentSlide];
 
-    if(slide.type === "image") {
+    if (slide.type === "image") {
 
         frame.srcdoc = `
 
+        <!DOCTYPE html>
+
         <html>
 
-        <body style="
-            margin:0;
-            background:black;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            width:100vw;
-            height:100vh;
-        ">
+        <head>
 
-            <img
-                src="${slide.url}"
-                style="
-                    width:100%;
-                    height:100%;
-                    object-fit:contain;
-                ">
+        <style>
+
+            html,
+            body {
+
+                margin: 0;
+
+                width: 100%;
+
+                height: 100%;
+
+                overflow: hidden;
+
+                background: black;
+            }
+
+            img {
+
+                width: 100%;
+
+                height: 100%;
+
+                object-fit: contain;
+            }
+
+        </style>
+
+        </head>
+
+        <body>
+
+            <img src="${slide.url}?v=${Date.now()}">
 
         </body>
 
@@ -558,7 +603,7 @@ function showSlide() {
 
         currentSlide++;
 
-        if(currentSlide >= slides.length) {
+        if (currentSlide >= slides.length) {
 
             currentSlide = 0;
         }
