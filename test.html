@@ -699,12 +699,11 @@ function showSlide() {
 
     if (slide.type === "image") {
 
-        frame.style.display = "none";
+    frame.style.display = "none";
 
-        image.style.display = "block";
+    image.style.display = "block";
 
-        image.src =
-            slide.url + "?v=" + Date.now();
+    image.src = slide.url;
     }
 
     /* ============================================= */
