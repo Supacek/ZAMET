@@ -657,29 +657,24 @@ const slides = [
     }
 
 ];
-    /* ============================================= */
+
+/* ============================================= */
 /* PŘEDNAČTENÍ OBRÁZKŮ */
 /* ============================================= */
 
 const preloadImages = [];
 
-if (slide.type === "image") {
+slides.forEach(slide => {
 
-    frame.style.display = "none";
+    if (slide.type === "image") {
 
-    image.style.display = "none";
+        const img = new Image();
 
-    const img = new Image();
+        img.src = slide.url;
 
-    img.onload = () => {
-
-        image.src = img.src;
-
-        image.style.display = "block";
-    };
-
-    img.src = slide.url;
-}
+        preloadImages.push(img);
+    }
+});
 
 let timer = null;
 let currentSlide = 0;
@@ -708,7 +703,6 @@ function showSlide() {
         slide.url,
         slide.duration
     );
-
     /* ============================================= */
     /* OBRÁZEK */
     /* ============================================= */
