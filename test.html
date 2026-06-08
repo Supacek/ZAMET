@@ -269,7 +269,7 @@ body {
 
     display: flex;
 
-    align-items: flex-start;
+    align-items: center;
 }
 
 /* ===================================================== */
@@ -288,17 +288,13 @@ body {
 
     letter-spacing: 1px;
 
-    padding-top: 6px;
+    display: inline-block;
 
-    padding-left: 100%;
+    will-change: transform;
 
-    display: flex;
+    transform: translateZ(0);
 
-    align-items: flex-start;
-
-    height: 100%;
-
-    animation: tickerMove 40s linear infinite;
+    animation: tickerMove 45s linear infinite;
 }
 
 /* ===================================================== */
@@ -339,13 +335,11 @@ body {
 
 @keyframes tickerMove {
 
-    0% {
-
-        transform: translateX(0);
+    from {
+        transform: translateX(100vw);
     }
 
-    100% {
-
+    to {
         transform: translateX(-100%);
     }
 }
@@ -677,8 +671,8 @@ slides.forEach(slide => {
 });
 
 let timer = null;
+let slideTimeout = null;
 let currentSlide = 0;
-
 const frame =
     document.getElementById("contentFrame");
 
@@ -767,21 +761,24 @@ function showSlide() {
     /* DALŠÍ SLIDE */
     /* ============================================= */
 
-    setTimeout(() => {
-
-        clearInterval(timer);
-
-        currentSlide++;
-
-        if (currentSlide >= slides.length) {
-
-            currentSlide = 0;
-        }
-
-        showSlide();
-
-    }, slide.duration * 1000);
+    if (slideTimeout) {
+    clearTimeout(slideTimeout);
 }
+
+slideTimeout = setTimeout(() => {
+
+    clearInterval(timer);
+
+    currentSlide++;
+
+    if (currentSlide >= slides.length) {
+
+        currentSlide = 0;
+    }
+
+    showSlide();
+
+}, slide.duration * 1000);
 
 /* START */
 
