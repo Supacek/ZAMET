@@ -663,17 +663,23 @@ const slides = [
 
 const preloadImages = [];
 
-slides.forEach(slide => {
+if (slide.type === "image") {
 
-    if (slide.type === "image") {
+    frame.style.display = "none";
 
-        const img = new Image();
+    image.style.display = "none";
 
-        img.src = slide.url;
+    const img = new Image();
 
-        preloadImages.push(img);
-    }
-});
+    img.onload = () => {
+
+        image.src = img.src;
+
+        image.style.display = "block";
+    };
+
+    img.src = slide.url;
+}
 
 let timer = null;
 let currentSlide = 0;
