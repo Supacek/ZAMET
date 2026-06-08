@@ -104,7 +104,7 @@ body {
 
     margin-top: 25px;
 }
-#vacation {
+    #vacation {
 
     font-size: clamp(20px, 1.6vw, 36px);
 
@@ -117,7 +117,7 @@ body {
     line-height: 1.4;
 
     padding: 0 15px;
-}    
+}
 
 /* ===================================================== */
 /* ČESKÝ SVÁTEK */
@@ -363,6 +363,12 @@ body {
     height: 60px;
 
     z-index: 9999;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    border-radius: 50%;
+
+    backdrop-filter: blur(3px);
 }
 
 #slideTimer svg {
@@ -418,6 +424,10 @@ body {
     font-weight: bold;
 
     color: white;
+
+    text-shadow:
+        0 0 4px black,
+        0 0 8px black;
 }
 
 </style>
@@ -644,15 +654,26 @@ const slides = [
         url: "darciwide3.jpg",
         type: "image",
         duration: 15
-    },
-
-    {
-        url: "http://10.111.10.37:92/display?display_id=2",
-        type: "iframe",
-        duration: 0
     }
 
 ];
+    /* ============================================= */
+/* PŘEDNAČTENÍ OBRÁZKŮ */
+/* ============================================= */
+
+const preloadImages = [];
+
+slides.forEach(slide => {
+
+    if (slide.type === "image") {
+
+        const img = new Image();
+
+        img.src = slide.url;
+
+        preloadImages.push(img);
+    }
+});
 
 let timer = null;
 let currentSlide = 0;
@@ -688,12 +709,11 @@ function showSlide() {
 
     if (slide.type === "image") {
 
-        frame.style.display = "none";
+    frame.style.display = "none";
 
-        image.style.display = "block";
+    image.style.display = "block";
 
-        image.src =
-            slide.url + "?v=" + Date.now();
+    image.src = slide.url;
     }
 
     /* ============================================= */
