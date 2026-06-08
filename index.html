@@ -761,11 +761,7 @@ function showSlide() {
     /* DALŠÍ SLIDE */
     /* ============================================= */
 
-    if (slideTimeout) {
-    clearTimeout(slideTimeout);
-}
-
-slideTimeout = setTimeout(() => {
+    slideTimeout = setTimeout(() => {
 
     clearInterval(timer);
 
@@ -779,6 +775,8 @@ slideTimeout = setTimeout(() => {
     showSlide();
 
 }, slide.duration * 1000);
+
+}   // <- ukončení funkce showSlide()
 
 /* START */
 
