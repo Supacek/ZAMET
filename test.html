@@ -644,15 +644,26 @@ const slides = [
         url: "darciwide3.jpg",
         type: "image",
         duration: 15
-    },
-
-    {
-        url: "http://10.111.10.37:92/display?display_id=2",
-        type: "iframe",
-        duration: 0
     }
 
 ];
+    /* ============================================= */
+/* PŘEDNAČTENÍ OBRÁZKŮ */
+/* ============================================= */
+
+const preloadImages = [];
+
+slides.forEach(slide => {
+
+    if (slide.type === "image") {
+
+        const img = new Image();
+
+        img.src = slide.url;
+
+        preloadImages.push(img);
+    }
+});
 
 let timer = null;
 let currentSlide = 0;
