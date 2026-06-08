@@ -174,57 +174,32 @@ body {
 }
 
 /* ===================================================== */
-/* CELOZÁVODNÍ */
-/* ===================================================== */
-
-#vacation {
-
-    font-size: clamp(20px, 1.6vw, 36px);
-
-    font-weight: bold;
-
-    color: #66ccff;
-
-    text-align: center;
-
-    line-height: 1.4;
-
-    padding: 0 15px;
-}
-
-/* ===================================================== */
 /* PRAVÁ ČÁST */
 /* ===================================================== */
 
 #content {
 
+    position: relative;
+
     flex: 1;
 
     display: flex;
 
     background: black;
-}
-
-/* ===================================================== */
-/* OBRÁZKY */
-/* ===================================================== */
-
-.image-box {
-
-    flex: 1;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
 
     overflow: hidden;
-
-    background: black;
 }
 
-.image-box img {
+/* ===================================================== */
+/* OBRÁZEK */
+/* ===================================================== */
+
+#slideImage {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
 
     width: 100%;
 
@@ -233,8 +208,35 @@ body {
     object-fit: contain;
 
     background: black;
+
+    display: none;
+
+    z-index: 1;
 }
 
+/* ===================================================== */
+/* IFRAME */
+/* ===================================================== */
+
+#contentFrame {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+    background: black;
+
+    display: none;
+
+    z-index: 2;
+}
 /* ===================================================== */
 /* SPODNÍ LIŠTA */
 /* ===================================================== */
@@ -333,6 +335,76 @@ body {
         transform: translateX(-100%);
     }
 }
+/* ===================================================== */
+/* TIMER */
+/* ===================================================== */
+    #slideTimer {
+
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    width: 60px;
+    height: 60px;
+
+    z-index: 9999;
+}
+
+#slideTimer svg {
+
+    position: absolute;
+
+    width: 60px;
+    height: 60px;
+
+    transform: rotate(-90deg);
+}
+
+.timer-bg {
+
+    fill: none;
+
+    stroke: rgba(255,255,255,0.2);
+
+    stroke-width: 3;
+}
+
+.timer-progress {
+
+    fill: none;
+
+    stroke: white;
+
+    stroke-width: 3;
+
+    stroke-linecap: round;
+
+    stroke-dasharray: 163;
+
+    stroke-dashoffset: 0;
+
+    transition: stroke-dashoffset 1s linear;
+}
+
+#timerText {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: white;
+}
 
 </style>
 
@@ -341,12 +413,14 @@ body {
 <body>
 
 <!-- ================================================= -->
-<!-- HLAVNÍ OBSAH -->
+<!-- HLAVNÍ LAYOUT -->
 <!-- ================================================= -->
 
 <div id="main">
 
+    <!-- ============================================= -->
     <!-- LEVÝ PANEL -->
+    <!-- ============================================= -->
 
     <div id="sidebar">
 
@@ -356,7 +430,7 @@ body {
 
         <!-- ČESKÝ SVÁTEK -->
 
-        <div>
+        <section>
 
             <div id="nameday-title">
                 Dnes má svátek
@@ -364,11 +438,11 @@ body {
 
             <div id="nameday"></div>
 
-        </div>
+        </section>
 
         <!-- UKRAJINSKÝ SVÁTEK -->
 
-        <div>
+        <section>
 
             <div id="ua-title">
                 Ukrajinský svátek
@@ -376,11 +450,11 @@ body {
 
             <div id="ua-nameday"></div>
 
-        </div>
+        </section>
 
         <!-- STÁTNÍ SVÁTEK -->
 
-        <div>
+        <section>
 
             <div id="holiday-title">
                 Nejbližší státní svátek
@@ -388,11 +462,11 @@ body {
 
             <div id="holiday"></div>
 
-        </div>
+        </section>
 
         <!-- VÁNOCE -->
 
-        <div>
+        <section>
 
             <div id="countdown-title">
                 Vánoce za
@@ -400,11 +474,11 @@ body {
 
             <div id="countdown"></div>
 
-        </div>
+        </section>
 
-        <!-- CELOZÁVODNÍ -->
+        <!-- CELOZÁVODNÍ DOVOLENÁ -->
 
-        <div>
+        <section>
 
             <div id="vacation-title">
                 Celozávodní dovolená
@@ -412,42 +486,75 @@ body {
 
             <div id="vacation"></div>
 
-        </div>
+        </section>
 
-<!-- POČASÍ -->
+        <!-- POČASÍ -->
 
-<div>
+        <section>
 
-    <div id="weather-title">
-        Počasí Halenkov 756 03
+            <div id="weather-title">
+                Počasí Halenkov 756 03
+            </div>
+
+            <div id="weather">
+                Načítání...
+            </div>
+
+        </section>
+
     </div>
 
-    <div id="weather">
-        Načítání...
-    </div>
-
-</div>
-
-    </div>
-
-    <!-- OBRÁZKY -->
+    <!-- ============================================= -->
+    <!-- PRAVÁ ČÁST -->
+    <!-- ============================================= -->
 
     <div id="content">
 
-        <div class="image-box">
+    <!-- TIMER -->
 
-            <img src="hledamekoleg.jpg">
+    <div id="slideTimer">
 
-        </div>
+        <svg width="60" height="60">
 
-        <div class="image-box">
+            <circle
+                cx="30"
+                cy="30"
+                r="26"
+                class="timer-bg">
+            </circle>
 
-            <img src="darci.jpg">
+            <circle
+                id="timerCircle"
+                cx="30"
+                cy="30"
+                r="26"
+                class="timer-progress">
+            </circle>
 
-        </div>
+        </svg>
+
+        <span id="timerText">
+            20
+        </span>
 
     </div>
 
+    <!-- OBRÁZEK -->
+
+    <img
+        id="slideImage"
+        src=""
+        alt="Obsah">
+
+    <!-- IFRAME -->
+
+    <iframe
+        id="contentFrame"
+        src=""
+        frameborder="0">
+    </iframe>
+
+</div>
 </div>
 
 <!-- ================================================= -->
@@ -456,40 +563,47 @@ body {
 
 <div id="ticker-bar">
 
-<div id="ticker">
+    <div id="ticker">
 
-    Hokej tipovačka je ukončená
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Hokej tipovačka je ukončená
 
-    1. místo: Daniel Vraj
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-    2. místo: Martin Orság
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        1. místo: Daniel Vraj
 
-    3. místo:
-    Renata Rajmicová,
-    Helena Manaková
-    a Jiří Tkadlec
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-    Gratulujeme výhercům
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2. místo: Martin Orság
 
-    Hledáme nové kolegy
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-    Kariéra ZAMET
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        3. místo:
+        Renata Rajmicová,
+        Helena Manaková
+        a Jiří Tkadlec
 
-    Více informací:
-    karierazamet.cz
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-    Nástup možný ihned
+        Gratulujeme výhercům
 
-</div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+        Hledáme nové kolegy
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        Kariéra ZAMET
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        Více informací:
+        karierazamet.cz
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        Nástup možný ihned
+
+    </div>
 
 </div>
 
@@ -500,7 +614,144 @@ body {
 <script src="svatek.js"></script>
 
 <script>
+/* ===================================================== */
+/* PŘEHRÁVAČ OBSAHU */
+/* ===================================================== */
 
+const slides = [
+
+    {
+        url: "kolegwide.jpg",
+        type: "image",
+        duration: 5
+    },
+
+    {
+        url: "darciwide.jpg",
+        type: "image",
+        duration: 5
+    },
+
+    {
+        url: "http://10.111.10.37:92/display?display_id=2",
+        type: "iframe",
+        duration: 0
+    }
+
+];
+
+let timer = null;
+let currentSlide = 0;
+
+const frame =
+    document.getElementById("contentFrame");
+
+const image =
+    document.getElementById("slideImage");
+
+const timerText =
+    document.getElementById("timerText");
+
+const timerCircle =
+    document.getElementById("timerCircle");
+
+const circumference = 163;
+
+function showSlide() {
+
+    const slide = slides[currentSlide];
+
+    console.log(
+        currentSlide,
+        slide.type,
+        slide.url,
+        slide.duration
+    );
+
+    /* ============================================= */
+    /* OBRÁZEK */
+    /* ============================================= */
+
+    if (slide.type === "image") {
+
+        frame.style.display = "none";
+
+        image.style.display = "block";
+
+        image.src =
+            slide.url + "?v=" + Date.now();
+    }
+
+    /* ============================================= */
+    /* IFRAME */
+    /* ============================================= */
+
+    else {
+
+        image.style.display = "none";
+
+        frame.style.display = "block";
+
+        frame.src = slide.url;
+    }
+
+    /* ============================================= */
+    /* ODPOČET */
+    /* ============================================= */
+
+    let countdown = slide.duration;
+
+    timerText.textContent = countdown;
+
+    timerCircle.style.strokeDashoffset = 0;
+
+    if (timer) {
+
+        clearInterval(timer);
+    }
+
+    timer = setInterval(() => {
+
+        countdown--;
+
+        timerText.textContent = countdown;
+
+        const progress =
+            countdown / slide.duration;
+
+        timerCircle.style.strokeDashoffset =
+            circumference * (1 - progress);
+
+        if (countdown <= 0) {
+
+            clearInterval(timer);
+        }
+
+    }, 1000);
+
+    /* ============================================= */
+    /* DALŠÍ SLIDE */
+    /* ============================================= */
+
+    setTimeout(() => {
+
+        clearInterval(timer);
+
+        currentSlide++;
+
+        if (currentSlide >= slides.length) {
+
+            currentSlide = 0;
+        }
+
+        showSlide();
+
+    }, slide.duration * 1000);
+}
+
+/* START */
+
+showSlide();
 /* ===================================================== */
 /* DATUM */
 /* ===================================================== */
