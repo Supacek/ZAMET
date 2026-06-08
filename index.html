@@ -671,8 +671,8 @@ slides.forEach(slide => {
 });
 
 let timer = null;
+let slideTimeout = null;
 let currentSlide = 0;
-
 const frame =
     document.getElementById("contentFrame");
 
@@ -761,21 +761,24 @@ function showSlide() {
     /* DALŠÍ SLIDE */
     /* ============================================= */
 
-    setTimeout(() => {
-
-        clearInterval(timer);
-
-        currentSlide++;
-
-        if (currentSlide >= slides.length) {
-
-            currentSlide = 0;
-        }
-
-        showSlide();
-
-    }, slide.duration * 1000);
+    if (slideTimeout) {
+    clearTimeout(slideTimeout);
 }
+
+slideTimeout = setTimeout(() => {
+
+    clearInterval(timer);
+
+    currentSlide++;
+
+    if (currentSlide >= slides.length) {
+
+        currentSlide = 0;
+    }
+
+    showSlide();
+
+}, slide.duration * 1000);
 
 /* START */
 
