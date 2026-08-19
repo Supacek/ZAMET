@@ -275,27 +275,36 @@ body {
 /* ===================================================== */
 /* BĚŽÍCÍ TEXT */
 /* ===================================================== */
+    /*
+    #ticker { white-space: nowrap; 
+             color: white; 
+             font-size: clamp(24px, 1.6vw, 42px); 
+             font-weight: bold; 
+             letter-spacing: 1px; 
+             display: inline-block; 
+             will-change: transform; 
+             transform: translateZ(0); 
+             animation: tickerMove 25s linear infinite; }
+    */
 
-#ticker {
-
+    #ticker {
     white-space: nowrap;
-
     color: white;
-
     font-size: clamp(24px, 1.6vw, 42px);
-
     font-weight: bold;
-
     letter-spacing: 1px;
 
-    display: inline-block;
+    width: 100%;
+    text-align: center;
+    }
 
-    will-change: transform;
+/* ===================================================== */
+/* ANIMACE */
+/* ===================================================== */
 
-    transform: translateZ(0);
-
-    animation: tickerMove 45s linear infinite;
-}
+ /*
+    @keyframes tickerMove { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
+    */    
 
 /* ===================================================== */
 /* POČASÍ */
@@ -329,20 +338,6 @@ body {
     padding: 0 10px;
 }
 
-/* ===================================================== */
-/* ANIMACE */
-/* ===================================================== */
-
-@keyframes tickerMove {
-
-    from {
-        transform: translateX(100vw);
-    }
-
-    to {
-        transform: translateX(-100%);
-    }
-}
 /* ===================================================== */
 /* TIMER */
 /* ===================================================== */
@@ -582,7 +577,6 @@ body {
 <div id="ticker-bar">
 
     <div id="ticker">
-
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
         Hledáme nové kolegy
@@ -595,10 +589,13 @@ body {
 
         Více informací:
         karierazamet.cz
+        Tel: +420 605 524 530
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
         Nástup možný ihned
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
     </div>
 
@@ -616,17 +613,31 @@ body {
 /* ===================================================== */
 
 const slides = [
-
+    {
+        url: "huslesvarec.jpg",
+        type: "image",
+        duration: 15
+    },
     {
         url: "kolegwide4.jpg",
+        type: "image",
+        duration: 10
+    },
+    {
+        url: "soutez2.jpg",
         type: "image",
         duration: 15
     },
 
     {
-        url: "darciwide4.jpg",
+        url: "tmobile1.jpg",
         type: "image",
         duration: 15
+    },
+    {
+        url: "hotelwide.jpg",
+        type: "image",
+        duration: 10
     }
 
 ];
@@ -740,7 +751,7 @@ function showSlide() {
     /* DALŠÍ SLIDE */
     /* ============================================= */
 
-   if (slideTimeout) {
+    if (slideTimeout) {
     clearTimeout(slideTimeout);
 }
 
@@ -888,7 +899,7 @@ document.getElementById("countdown").innerHTML =
 /* CELOZÁVODNÍ DOVOLENÁ */
 /* ===================================================== */
 
-const vacationStart = new Date(
+/*const vacationStart = new Date(
 
     2026,
     6,
@@ -920,7 +931,7 @@ document.getElementById("vacation").innerHTML =
     vacationDays +
 
     " dní";
-
+*/
 /* ===================================================== */
 /* POČASÍ */
 /* ===================================================== */
