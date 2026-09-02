@@ -1,6 +1,6 @@
 /* =======================================================
-   ZAMET TV V6 - RESPONSIVE + TV READY
-   Notebook • PC • FullHD TV • 4K TV
+   ZAMET TV V7
+   Dashboard styl (Notebook + TV)
    ======================================================= */
 
 /* =======================================================
@@ -15,24 +15,24 @@ body{
     overflow:hidden;
 
     background:#020817;
-    color:#fff;
+    color:white;
 
     font-family:"Segoe UI",Arial,sans-serif;
 }
 
 /* =======================================================
-   HLAVNÍ LAYOUT
+   LAYOUT
    ======================================================= */
 
 #main{
     display:flex;
     width:100vw;
-    height:calc(100vh - clamp(56px,3.4vw,68px));
+    height:calc(100vh - clamp(58px,3vw,72px));
     background:#020817;
 }
 
 /* =======================================================
-   LEVÝ PANEL
+   SIDEBAR
    ======================================================= */
 
 #sidebar{
@@ -41,22 +41,105 @@ body{
     min-width:285px;
     max-width:340px;
 
-    padding:clamp(10px,.8vw,16px);
-
+    padding:12px;
     box-sizing:border-box;
 
     display:flex;
     flex-direction:column;
-    gap:clamp(8px,.6vh,12px);
+    gap:10px;
 
     background:
-        radial-gradient(circle at top,#184DA8 0%,#0C285F 40%,#020817 100%);
+        radial-gradient(circle at top,#1748A5 0%,#0B285F 40%,#020817 100%);
 
-    border-right:1px solid rgba(255,255,255,.08);
+    border-right:1px solid rgba(255,255,255,.05);
+
+    box-shadow:8px 0 22px rgba(0,0,0,.35);
+}
+
+/* =======================================================
+   KARTY
+   ======================================================= */
+
+.info-card{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    padding:14px;
+
+    border-radius:18px;
+
+    background:linear-gradient(180deg,#12387E,#081F49);
+
+    border:1px solid rgba(255,255,255,.05);
 
     box-shadow:
-        inset -1px 0 rgba(255,255,255,.03),
-        8px 0 24px rgba(0,0,0,.35);
+        inset 0 1px 0 rgba(255,255,255,.05),
+        0 5px 15px rgba(0,0,0,.28);
+
+    transition:.25s;
+}
+
+.date-card{
+    padding:16px 14px;
+}
+
+.card-content{
+    flex:1;
+    min-width:0;
+}
+
+/* =======================================================
+   IKONY
+   ======================================================= */
+
+.icon-box{
+
+    width:48px;
+    height:48px;
+
+    border-radius:14px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    flex-shrink:0;
+}
+
+.icon-box svg{
+
+    width:26px;
+    height:26px;
+
+    stroke:white;
+    stroke-width:2;
+    fill:none;
+}
+
+.blue{
+    background:linear-gradient(#2F82FF,#1757D5);
+}
+
+.yellow{
+    background:linear-gradient(#FFD84C,#D59C00);
+}
+
+.red{
+    background:linear-gradient(#FF6666,#C93030);
+}
+
+.green{
+    background:linear-gradient(#23DE73,#0A9444);
+}
+
+.purple{
+    background:linear-gradient(#C86CFF,#7B30D8);
+}
+
+.cyan{
+    background:linear-gradient(#40C8FF,#1763D5);
 }
 
 /* =======================================================
@@ -65,143 +148,9 @@ body{
 
 #date{
 
-    position:relative;
-
-    padding:
-        clamp(14px,.9vw,18px)
-        clamp(14px,.9vw,18px)
-        clamp(14px,.9vw,18px)
-        clamp(60px,4vw,74px);
-
-    border-radius:18px;
-
-    background:linear-gradient(180deg,#123D8B,#092451);
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.05),
-        0 6px 16px rgba(0,0,0,.28);
-
-    font-size:clamp(20px,1.2vw,30px);
+    font-size:clamp(19px,1.3vw,30px);
     font-weight:700;
     line-height:1.3;
-    text-align:left;
-}
-
-#date::before{
-
-    content:"📅";
-
-    position:absolute;
-
-    left:14px;
-    top:50%;
-    transform:translateY(-50%);
-
-    width:38px;
-    height:38px;
-
-    border-radius:11px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:18px;
-
-    background:linear-gradient(180deg,#2D82FF,#1758D5);
-
-    box-shadow:0 3px 10px rgba(0,90,255,.35);
-}
-
-/* =======================================================
-   KARTY
-   ======================================================= */
-
-#sidebar section{
-
-    position:relative;
-
-    padding:12px 14px 12px 60px;
-
-    min-height:58px;
-
-    border-radius:16px;
-
-    background:
-        linear-gradient(180deg,#10367B,#081F4A);
-
-    border:1px solid rgba(255,255,255,.05);
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.04),
-        0 5px 14px rgba(0,0,0,.28);
-}
-
-/* Hover jen na PC */
-
-@media (hover:hover){
-
-    #sidebar section:hover{
-        transform:translateY(-1px);
-        box-shadow:
-            inset 0 1px 0 rgba(255,255,255,.05),
-            0 8px 18px rgba(0,0,0,.35);
-    }
-
-}
-
-/* =======================================================
-   IKONY
-   ======================================================= */
-
-#sidebar section::before{
-
-    position:absolute;
-
-    left:14px;
-    top:50%;
-    transform:translateY(-50%);
-
-    width:34px;
-    height:34px;
-
-    border-radius:10px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:16px;
-}
-
-#sidebar section:nth-of-type(1)::before{
-    content:"👤";
-    background:linear-gradient(180deg,#2D82FF,#1855D0);
-}
-
-#sidebar section:nth-of-type(2)::before{
-    content:"🇺🇦";
-    background:linear-gradient(180deg,#FFD84C,#D59C00);
-}
-
-#sidebar section:nth-of-type(3)::before{
-    content:"📅";
-    background:linear-gradient(180deg,#FF6565,#CB3030);
-}
-
-#sidebar section:nth-of-type(4)::before{
-    content:"🎄";
-    background:linear-gradient(180deg,#22DE72,#0B9444);
-}
-
-#sidebar section:nth-of-type(5)::before{
-    content:"🧳";
-    background:linear-gradient(180deg,#C56BFF,#7B30D8);
-}
-
-#sidebar section:nth-of-type(6)::before{
-    content:"☁️";
-    background:linear-gradient(180deg,#42C8FF,#1662D4);
 }
 
 /* =======================================================
@@ -215,18 +164,16 @@ body{
 #vacation-title,
 #weather-title{
 
-    margin:0 0 4px;
-
-    color:#92A9D8;
+    color:#9FB7E6;
 
     text-transform:uppercase;
 
     letter-spacing:.8px;
 
-    font-size:clamp(10px,.55vw,12px);
+    font-size:11px;
     font-weight:600;
 
-    text-align:left;
+    margin-bottom:4px;
 }
 
 /* =======================================================
@@ -235,79 +182,52 @@ body{
 
 #nameday{
 
-    font-size:clamp(22px,1.45vw,34px);
+    font-size:clamp(24px,1.5vw,36px);
     font-weight:800;
-    color:#fff;
-
-    padding:0;
-    text-align:left;
+    color:white;
 }
 
 #ua-nameday{
 
-    font-size:clamp(22px,1.45vw,34px);
+    font-size:clamp(24px,1.5vw,36px);
     font-weight:800;
     color:#FFD400;
-
-    padding:0;
-    text-align:left;
 }
 
 #holiday{
 
-    font-size:clamp(15px,.95vw,20px);
+    font-size:clamp(15px,1vw,20px);
     font-weight:700;
-
-    color:#FF5353;
-
+    color:#FF5050;
     line-height:1.25;
-
-    padding:0;
-    text-align:left;
 }
 
 #countdown{
 
-    font-size:clamp(24px,1.7vw,38px);
+    font-size:clamp(28px,1.8vw,42px);
     font-weight:800;
-
-    color:#20EF79;
-
-    padding:0;
-    text-align:left;
+    color:#1EF078;
 }
 
 #vacation{
 
-    font-size:clamp(13px,.85vw,16px);
+    font-size:clamp(13px,.9vw,17px);
     font-weight:700;
-
-    color:#D56BFF;
-
-    line-height:1.35;
-
-    padding:0;
-    text-align:left;
+    color:#D66CFF;
+    line-height:1.45;
 }
 
 #weather{
 
-    font-size:clamp(13px,.85vw,17px);
+    font-size:15px;
     font-weight:600;
-
-    color:white;
-
-    line-height:1.3;
-
-    padding:0;
-    text-align:left;
+    line-height:1.35;
 }
 
 #weather::first-line{
 
-    font-size:clamp(24px,1.5vw,34px);
+    font-size:clamp(26px,1.7vw,38px);
     font-weight:800;
-
     color:#59CAFF;
 }
 
@@ -320,8 +240,6 @@ body{
     position:relative;
 
     flex:1;
-
-    display:flex;
 
     background:black;
 
@@ -368,19 +286,17 @@ body{
 
 #ticker-bar{
 
-    width:100vw;
-    height:clamp(56px,3.4vw,68px);
+    height:clamp(58px,3vw,70px);
 
     display:flex;
     align-items:center;
+    justify-content:center;
 
-    overflow:hidden;
+    background:linear-gradient(180deg,#082C73,#031326);
 
-    background:linear-gradient(180deg,#082B73,#031327);
+    border-top:1px solid rgba(255,255,255,.06);
 
-    border-top:1px solid rgba(255,255,255,.08);
-
-    box-shadow:0 -5px 14px rgba(0,0,0,.30);
+    box-shadow:0 -5px 14px rgba(0,0,0,.35);
 }
 
 #ticker{
@@ -391,17 +307,22 @@ body{
 
     white-space:nowrap;
 
-    color:white;
-
-    font-size:clamp(15px,.95vw,22px);
+    font-size:clamp(15px,1vw,22px);
     font-weight:700;
 
-    letter-spacing:.3px;
+    color:white;
 }
 
-.ticker-green{color:#18EF7C;}
+.divider{
+
+    color:rgba(255,255,255,.4);
+
+    margin:0 18px;
+}
+
+.ticker-green{color:#1EF078;}
 .ticker-yellow{color:#FFD43D;}
-.ticker-blue{color:#4DBBFF;}
+.ticker-blue{color:#42B9FF;}
 .ticker-orange{color:#FF9800;}
 
 /* =======================================================
@@ -415,10 +336,8 @@ body{
     top:10px;
     right:10px;
 
-    width:clamp(46px,2.8vw,58px);
-    height:clamp(46px,2.8vw,58px);
-
-    z-index:9999;
+    width:56px;
+    height:56px;
 
     border-radius:50%;
 
@@ -426,12 +345,10 @@ body{
 
     backdrop-filter:blur(6px);
 
-    box-shadow:0 0 14px rgba(0,0,0,.45);
+    z-index:999;
 }
 
 #slideTimer svg{
-
-    position:absolute;
 
     width:100%;
     height:100%;
@@ -459,7 +376,6 @@ body{
     stroke-linecap:round;
 
     stroke-dasharray:163;
-    stroke-dashoffset:0;
 
     transition:stroke-dashoffset 1s linear;
 }
@@ -473,16 +389,14 @@ body{
     justify-content:center;
     align-items:center;
 
-    font-size:clamp(15px,.9vw,20px);
+    font-size:18px;
     font-weight:700;
-
-    color:white;
 
     text-shadow:0 0 8px black;
 }
 
 /* =======================================================
-   MALÉ NOTEBOOKY
+   NOTEBOOKY
    ======================================================= */
 
 @media (max-width:1400px){
@@ -492,8 +406,43 @@ body{
         min-width:280px;
     }
 
-    #ticker{
-        font-size:15px;
+    .icon-box{
+        width:44px;
+        height:44px;
     }
 
+    .icon-box svg{
+        width:24px;
+        height:24px;
+    }
+
+    .info-card{
+        padding:12px;
+        gap:12px;
+    }
+}
+
+/* =======================================================
+   VELKÉ TV (4K)
+   ======================================================= */
+
+@media (min-width:2560px){
+
+    #sidebar{
+        width:340px;
+    }
+
+    .info-card{
+        padding:16px;
+    }
+
+    .icon-box{
+        width:52px;
+        height:52px;
+    }
+
+    .icon-box svg{
+        width:28px;
+        height:28px;
+    }
 }
