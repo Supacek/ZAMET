@@ -1,5 +1,6 @@
 /* =======================================================
-   ZAMET TV V4
+   ZAMET TV V5 - RESPONSIVE
+   Funguje na notebooku, PC i TV
    ======================================================= */
 
 /* =======================================================
@@ -26,7 +27,7 @@ body{
 #main{
     display:flex;
     width:100vw;
-    height:calc(100vh - 68px);
+    height:calc(100vh - clamp(56px,3.5vw,70px));
     background:#020817;
 }
 
@@ -36,26 +37,26 @@ body{
 
 #sidebar{
 
-    width:300px;
-    min-width:300px;
-    max-width:300px;
+    width:18vw;
+    min-width:260px;
+    max-width:340px;
 
-    padding:12px;
-    gap:10px;
+    padding:clamp(10px,.8vw,16px);
 
     box-sizing:border-box;
 
     display:flex;
     flex-direction:column;
+    gap:clamp(8px,.55vw,12px);
 
     background:
-        radial-gradient(circle at top,#1648a4 0%,#0b2558 35%,#041228 100%);
+        radial-gradient(circle at top,#184da9 0%,#0a265b 38%,#03101f 100%);
 
     border-right:1px solid rgba(255,255,255,.08);
 
     box-shadow:
-        inset -1px 0 rgba(255,255,255,.04),
-        8px 0 25px rgba(0,0,0,.35);
+        inset -1px 0 rgba(255,255,255,.03),
+        10px 0 28px rgba(0,0,0,.35);
 }
 
 /* =======================================================
@@ -66,22 +67,25 @@ body{
 
     position:relative;
 
-    padding:14px 16px 14px 68px;
+    padding:
+        clamp(12px,.9vw,18px)
+        clamp(14px,1vw,18px)
+        clamp(12px,.9vw,18px)
+        clamp(58px,4vw,74px);
 
-    border-radius:18px;
+    border-radius:clamp(14px,1vw,20px);
 
-    background:
-        linear-gradient(180deg,#123c8b,#0a2558);
+    background:linear-gradient(180deg,#133d8c,#082352);
 
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,.05),
-        0 8px 18px rgba(0,0,0,.35);
+        0 8px 18px rgba(0,0,0,.30);
 
     text-align:left;
 
-    font-size:18px;
+    font-size:clamp(18px,1.3vw,30px);
     font-weight:700;
-    line-height:1.35;
+    line-height:1.3;
 }
 
 #date::before{
@@ -90,13 +94,13 @@ body{
 
     position:absolute;
 
-    left:14px;
+    left:clamp(12px,.8vw,16px);
     top:50%;
 
     transform:translateY(-50%);
 
-    width:42px;
-    height:42px;
+    width:clamp(38px,2vw,50px);
+    height:clamp(38px,2vw,50px);
 
     border-radius:12px;
 
@@ -104,11 +108,11 @@ body{
     justify-content:center;
     align-items:center;
 
-    font-size:20px;
+    font-size:clamp(18px,1vw,24px);
 
-    background:linear-gradient(180deg,#2d83ff,#1658d5);
+    background:linear-gradient(180deg,#2d83ff,#1757d5);
 
-    box-shadow:0 4px 12px rgba(0,90,255,.35);
+    box-shadow:0 4px 12px rgba(0,100,255,.30);
 }
 
 /* =======================================================
@@ -119,11 +123,15 @@ body{
 
     position:relative;
 
-    padding:12px 14px 12px 68px;
+    padding:
+        clamp(10px,.7vw,14px)
+        clamp(12px,.8vw,16px)
+        clamp(10px,.7vw,14px)
+        clamp(58px,4vw,74px);
 
-    min-height:56px;
+    min-height:clamp(54px,5vh,72px);
 
-    border-radius:18px;
+    border-radius:clamp(14px,1vw,18px);
 
     background:
         linear-gradient(180deg,#10367d,#071d46);
@@ -131,8 +139,8 @@ body{
     border:1px solid rgba(255,255,255,.05);
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.05),
-        0 6px 16px rgba(0,0,0,.30);
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 6px 16px rgba(0,0,0,.25);
 }
 
 /* =======================================================
@@ -143,13 +151,13 @@ body{
 
     position:absolute;
 
-    left:14px;
+    left:clamp(12px,.8vw,16px);
     top:50%;
 
     transform:translateY(-50%);
 
-    width:42px;
-    height:42px;
+    width:clamp(38px,2vw,48px);
+    height:clamp(38px,2vw,48px);
 
     border-radius:12px;
 
@@ -157,39 +165,39 @@ body{
     justify-content:center;
     align-items:center;
 
-    font-size:20px;
+    font-size:clamp(18px,1vw,22px);
 }
 
-/* Jednotlivé barvy */
+/* Barvy ikon */
 
 #sidebar section:nth-of-type(1)::before{
     content:"👤";
-    background:linear-gradient(180deg,#2e7dff,#1855d0);
+    background:linear-gradient(180deg,#2d83ff,#1757d5);
 }
 
 #sidebar section:nth-of-type(2)::before{
     content:"🇺🇦";
-    background:linear-gradient(180deg,#ffd94d,#d99d00);
+    background:linear-gradient(180deg,#ffd84c,#d99d00);
 }
 
 #sidebar section:nth-of-type(3)::before{
     content:"📅";
-    background:linear-gradient(180deg,#ff6464,#cb3030);
+    background:linear-gradient(180deg,#ff6565,#cb3030);
 }
 
 #sidebar section:nth-of-type(4)::before{
     content:"🎄";
-    background:linear-gradient(180deg,#22dc73,#0b9444);
+    background:linear-gradient(180deg,#23df73,#0b9444);
 }
 
 #sidebar section:nth-of-type(5)::before{
     content:"🧳";
-    background:linear-gradient(180deg,#c66dff,#7c2fd8);
+    background:linear-gradient(180deg,#c66cff,#7b30d7);
 }
 
 #sidebar section:nth-of-type(6)::before{
     content:"☁️";
-    background:linear-gradient(180deg,#42c8ff,#1663d4);
+    background:linear-gradient(180deg,#42c9ff,#1662d4);
 }
 
 /* =======================================================
@@ -205,13 +213,13 @@ body{
 
     margin:0 0 4px;
 
-    color:#8ea7d7;
+    color:#8fa9d8;
 
     text-transform:uppercase;
 
     letter-spacing:1px;
 
-    font-size:11px;
+    font-size:clamp(10px,.6vw,12px);
     font-weight:600;
 
     text-align:left;
@@ -223,82 +231,84 @@ body{
 
 #nameday{
 
-    font-size:24px;
+    font-size:clamp(20px,1.5vw,34px);
     font-weight:800;
 
-    color:#fff;
+    color:white;
 
-    padding:0;
     text-align:left;
+    padding:0;
 }
 
 #ua-nameday{
 
-    font-size:24px;
+    font-size:clamp(20px,1.5vw,34px);
     font-weight:800;
 
     color:#ffd400;
 
-    padding:0;
     text-align:left;
+    padding:0;
 }
 
 #holiday{
 
-    font-size:17px;
+    font-size:clamp(15px,1vw,20px);
     font-weight:700;
 
-    color:#ff5151;
+    color:#ff5353;
 
     line-height:1.3;
 
-    padding:0;
     text-align:left;
+    padding:0;
 }
 
 #countdown{
 
-    font-size:28px;
+    font-size:clamp(22px,1.8vw,38px);
     font-weight:800;
 
-    color:#23ef7c;
+    color:#22ef7a;
 
-    padding:0;
     text-align:left;
+    padding:0;
 }
 
 #vacation{
 
-    font-size:15px;
+    font-size:clamp(13px,.9vw,17px);
     font-weight:700;
 
-    color:#d56bff;
+    color:#d86bff;
 
     line-height:1.45;
 
-    padding:0;
     text-align:left;
+    padding:0;
 }
 
 #weather{
 
-    font-size:15px;
+    font-size:clamp(14px,.95vw,18px);
     font-weight:600;
 
-    color:#fff;
+    color:white;
 
-    line-height:1.3;
+    line-height:1.35;
 
-    padding:0;
     text-align:left;
+    padding:0;
 }
+
+/* První řádek = teplota */
 
 #weather::first-line{
 
-    font-size:28px;
+    font-size:clamp(22px,1.7vw,34px);
     font-weight:800;
 
-    color:#59cbff;
+    color:#58cbff;
 }
 
 /* =======================================================
@@ -313,7 +323,7 @@ body{
 
     display:flex;
 
-    background:#000;
+    background:black;
 
     overflow:hidden;
 }
@@ -332,7 +342,7 @@ body{
 
     object-fit:contain;
 
-    background:#000;
+    background:black;
 
     display:none;
 
@@ -353,7 +363,7 @@ body{
 
     border:none;
 
-    background:#000;
+    background:black;
 
     display:none;
 
@@ -367,7 +377,7 @@ body{
 #ticker-bar{
 
     width:100vw;
-    height:68px;
+    height:clamp(56px,3.5vw,70px);
 
     display:flex;
     align-items:center;
@@ -375,11 +385,11 @@ body{
     overflow:hidden;
 
     background:
-        linear-gradient(180deg,#082b73,#041530);
+        linear-gradient(180deg,#082c74,#04142d);
 
     border-top:1px solid rgba(255,255,255,.08);
 
-    box-shadow:0 -8px 18px rgba(0,0,0,.35);
+    box-shadow:0 -6px 16px rgba(0,0,0,.30);
 }
 
 #ticker{
@@ -392,27 +402,16 @@ body{
 
     color:white;
 
-    font-size:22px;
+    font-size:clamp(15px,1vw,24px);
     font-weight:700;
 
     letter-spacing:.4px;
 }
 
-.ticker-green{
-    color:#19ef7d;
-}
-
-.ticker-yellow{
-    color:#ffd43d;
-}
-
-.ticker-blue{
-    color:#4dbbff;
-}
-
-.ticker-orange{
-    color:#ff9800;
-}
+.ticker-green{ color:#18ef7c; }
+.ticker-yellow{ color:#ffd43d; }
+.ticker-blue{ color:#4dbbff; }
+.ticker-orange{ color:#ff9800; }
 
 /* =======================================================
    TIMER
@@ -422,11 +421,11 @@ body{
 
     position:absolute;
 
-    top:10px;
-    right:10px;
+    top:clamp(8px,.6vw,12px);
+    right:clamp(8px,.6vw,12px);
 
-    width:56px;
-    height:56px;
+    width:clamp(46px,3vw,60px);
+    height:clamp(46px,3vw,60px);
 
     z-index:9999;
 
@@ -443,8 +442,8 @@ body{
 
     position:absolute;
 
-    width:56px;
-    height:56px;
+    width:100%;
+    height:100%;
 
     transform:rotate(-90deg);
 }
@@ -483,7 +482,7 @@ body{
     justify-content:center;
     align-items:center;
 
-    font-size:20px;
+    font-size:clamp(16px,1vw,22px);
     font-weight:700;
 
     color:white;
