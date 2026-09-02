@@ -37,26 +37,24 @@ body{
 
 #sidebar{
 
-    width:18vw;
-    min-width:260px;
-    max-width:340px;
+    width:clamp(280px,19vw,360px);
+    min-width:280px;
+    max-width:360px;
 
-    padding:clamp(10px,.8vw,16px);
-
-    box-sizing:border-box;
+    padding:clamp(10px,0.8vw,18px);
 
     display:flex;
     flex-direction:column;
-    gap:clamp(8px,.55vw,12px);
+    gap:clamp(8px,0.7vh,12px);
+
+    box-sizing:border-box;
 
     background:
-        radial-gradient(circle at top,#184da9 0%,#0a265b 38%,#03101f 100%);
+        radial-gradient(circle at top,#184da9 0%,#0a265b 40%,#03101f 100%);
 
     border-right:1px solid rgba(255,255,255,.08);
 
-    box-shadow:
-        inset -1px 0 rgba(255,255,255,.03),
-        10px 0 28px rgba(0,0,0,.35);
+    box-shadow:8px 0 24px rgba(0,0,0,.35);
 }
 
 /* =======================================================
