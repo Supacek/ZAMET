@@ -1,30 +1,45 @@
-// Konfigurace ZAMET TEST V2
+// =====================================================
+// ZAMET TEST V2 - KONFIGURACE
+// =====================================================
 
-const slides = [
-    {
-        url: "DK.jpg",
-        type: "image",
-        duration: 15
+const CONFIG = {
+
+    // =========================
+    // Slideshow
+    // =========================
+    slides: [
+        { url: "DK.jpg", type: "image", duration: 15 },
+        { url: "huslesvarec.jpg", type: "image", duration: 15 },
+        { url: "kolegwide4.jpg", type: "image", duration: 10 },
+        { url: "losovani.jpg", type: "image", duration: 15 },
+        { url: "hotelwide.jpg", type: "image", duration: 10 }
+    ],
+
+    // =========================
+    // Počasí
+    // =========================
+    weather: {
+        location: "Halenkov 756 03",
+        lat: 49.317,
+        lon: 18.147,
+        apiKey: "097e577eac9403ee6dc032311afb6fe4",
+        refresh: 30 * 60 * 1000 // 30 minut
     },
-    {
-        url: "huslesvarec.jpg",
-        type: "image",
-        duration: 15
+
+    // =========================
+    // Celozávodní dovolená
+    // =========================
+    vacation: {
+        start: "2026-12-28",
+        end: "2026-12-31"
     },
-    {
-        url: "kolegwide4.jpg",
-        type: "image",
-        duration: 10
-    },
-    {
-        url: "losovani.jpg",
-        type: "image",
-        duration: 15
-    },
-    {
-        url: "hotelwide.jpg",
-        type: "image",
-        duration: 10
+
+    // =========================
+    // Spodní lišta
+    // =========================
+    ticker: {
+        phone: "+420 605 524 530",
+        website: "karierazamet.cz"
     }
 
-];
+};
