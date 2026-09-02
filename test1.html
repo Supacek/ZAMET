@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
+
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ZAMET NÁSTĚNKA</title>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" href="favicon.png">
+
 </head>
 <body>
 
@@ -22,106 +26,124 @@
     <aside id="sidebar">
 
         <!-- DATUM -->
-        <div id="date-card">
+        <section class="info-card date-card">
+
             <div class="icon-box blue">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <svg viewBox="0 0 24 24">
                     <rect x="3" y="5" width="18" height="16" rx="2"/>
-                    <path d="M8 3v4M16 3v4M3 10h18"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                    <line x1="8" y1="3" x2="8" y2="7"/>
+                    <line x1="16" y1="3" x2="16" y2="7"/>
                 </svg>
             </div>
 
-            <div class="card-body">
+            <div class="card-content">
                 <div id="date"></div>
             </div>
-        </div>
 
-        <!-- Dnes má svátek -->
+        </section>
+
+        <!-- DNES MÁ SVÁTEK -->
         <section class="info-card">
+
             <div class="icon-box blue">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <svg viewBox="0 0 24 24">
                     <circle cx="12" cy="8" r="4"/>
                     <path d="M4 20c2-4 6-6 8-6s6 2 8 6"/>
                 </svg>
             </div>
 
-            <div class="card-body">
+            <div class="card-content">
                 <div id="nameday-title">Dnes má svátek</div>
                 <div id="nameday"></div>
             </div>
+
         </section>
 
-        <!-- Ukrajinský svátek -->
+        <!-- UKRAJINSKÝ SVÁTEK -->
         <section class="info-card">
+
             <div class="icon-box yellow">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <svg viewBox="0 0 24 24">
                     <path d="M12 2l7 3v6c0 5-3.5 8-7 11-3.5-3-7-6-7-11V5l7-3z"/>
                 </svg>
             </div>
 
-            <div class="card-body">
+            <div class="card-content">
                 <div id="ua-title">Ukrajinský svátek</div>
                 <div id="ua-nameday"></div>
             </div>
+
         </section>
 
-        <!-- Státní svátek -->
+        <!-- STÁTNÍ SVÁTEK -->
         <section class="info-card">
+
             <div class="icon-box red">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <svg viewBox="0 0 24 24">
                     <rect x="4" y="3" width="16" height="18" rx="2"/>
-                    <path d="M8 2v4M16 2v4M4 9h16"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="4" y1="9" x2="20" y2="9"/>
                     <path d="M9 14l2 2 4-4"/>
                 </svg>
             </div>
 
-            <div class="card-body">
+            <div class="card-content">
                 <div id="holiday-title">Nejbližší státní svátek</div>
                 <div id="holiday"></div>
             </div>
+
         </section>
 
-        <!-- Vánoce -->
+        <!-- VÁNOCE -->
         <section class="info-card">
+
             <div class="icon-box green">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <svg viewBox="0 0 24 24">
                     <path d="M12 2l3 4h-2l3 4h-2l3 5H7l3-5H8l3-4H9l3-4z"/>
-                    <path d="M12 19v3"/>
+                    <line x1="12" y1="19" x2="12" y2="22"/>
                 </svg>
             </div>
 
-            <div class="card-body">
+            <div class="card-content">
                 <div id="countdown-title">Vánoce za</div>
                 <div id="countdown"></div>
             </div>
+
         </section>
 
-        <!-- Dovolená -->
+        <!-- DOVOLENÁ -->
         <section class="info-card">
+
             <div class="icon-box purple">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <svg viewBox="0 0 24 24">
                     <rect x="3" y="7" width="18" height="13" rx="2"/>
                     <path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/>
                 </svg>
             </div>
 
-            <div class="card-body">
+            <div class="card-content">
                 <div id="vacation-title">Celozávodní dovolená</div>
                 <div id="vacation"></div>
             </div>
+
         </section>
 
-        <!-- Počasí -->
+        <!-- POČASÍ -->
         <section class="info-card">
+
             <div class="icon-box cyan">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <svg viewBox="0 0 24 24">
                     <path d="M7 18h10a4 4 0 000-8 5 5 0 00-9-2A4 4 0 007 18z"/>
                 </svg>
             </div>
 
-            <div class="card-body">
+            <div class="card-content">
                 <div id="weather-title"></div>
                 <div id="weather">Načítání...</div>
             </div>
+
         </section>
 
     </aside>
@@ -130,14 +152,29 @@
     <!-- PRAVÁ ČÁST -->
     <!-- ============================================= -->
 
-    <div id="content">
+    <main id="content">
 
         <!-- TIMER -->
+
         <div id="slideTimer">
 
-            <svg width="60" height="60">
-                <circle cx="30" cy="30" r="26" class="timer-bg"></circle>
-                <circle id="timerCircle" cx="30" cy="30" r="26" class="timer-progress"></circle>
+            <svg viewBox="0 0 60 60">
+
+                <circle
+                    cx="30"
+                    cy="30"
+                    r="26"
+                    class="timer-bg">
+                </circle>
+
+                <circle
+                    id="timerCircle"
+                    cx="30"
+                    cy="30"
+                    r="26"
+                    class="timer-progress">
+                </circle>
+
             </svg>
 
             <span id="timerText">20</span>
@@ -145,12 +182,21 @@
         </div>
 
         <!-- OBRÁZEK -->
-        <img id="slideImage" src="" alt="Obsah">
+
+        <img
+            id="slideImage"
+            src=""
+            alt="Obsah">
 
         <!-- IFRAME -->
-        <iframe id="contentFrame" src="" frameborder="0"></iframe>
 
-    </div>
+        <iframe
+            id="contentFrame"
+            src=""
+            title="Obsah nástěnky">
+        </iframe>
+
+    </main>
 
 </div>
 
@@ -158,34 +204,30 @@
 <!-- SPODNÍ LIŠTA -->
 <!-- ================================================= -->
 
-<div id="ticker-bar">
+<footer id="ticker-bar">
 
     <div id="ticker">
 
-        &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-
         <span class="ticker-green">Hledáme nové kolegy</span>
 
-        &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <span class="divider">|</span>
 
         <span class="ticker-yellow">Kariéra ZAMET</span>
 
-        &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <span class="divider">|</span>
 
         Více informací:
-        <span class="ticker-yellow">karierazamet.cz</span>
+        <span class="ticker-green">karierazamet.cz</span>
 
-        <span class="ticker-blue">Tel: +420 605 524 530</span>
+        <span class="ticker-blue">☎ +420 605 524 530</span>
 
-        &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <span class="divider">|</span>
 
         <span class="ticker-orange">Nástup možný ihned</span>
 
-        &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-
     </div>
 
-</div>
+</footer>
 
 <!-- ================================================= -->
 <!-- JAVASCRIPT -->
