@@ -1,429 +1,498 @@
-/* ===================================================== */
-/* ZÁKLAD */
-/* ===================================================== */
-
 html,
-body {
+body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
 
-    margin: 0;
-    width: 100%;
-    height: 100%;
+    background:#020817;
+    color:#fff;
 
-    overflow: hidden;
-
-    background: black;
-
-    font-family: Arial, sans-serif;
-
-    color: white;
+    font-family:"Segoe UI", Arial, sans-serif;
 }
 
-/* ===================================================== */
-/* HLAVNÍ LAYOUT */
-/* ===================================================== */
+/* =======================================================
+   HLAVNÍ LAYOUT
+   ======================================================= */
 
-#main {
-
-    display: flex;
-
-    width: 100vw;
-
-    height: calc(100vh - 70px);
-
-    background: #0b0f3d;
+#main{
+    display:flex;
+    width:100vw;
+    height:calc(100vh - 70px);
+    background:#020817;
 }
 
-/* ===================================================== */
-/* LEVÝ PANEL */
-/* ===================================================== */
+/* =======================================================
+   SIDEBAR
+   ======================================================= */
 
-#sidebar {
+#sidebar{
 
-    width: 22vw;
+    width:340px;
+    min-width:340px;
+    max-width:340px;
 
-    min-width: 340px;
+    padding:16px;
 
-    max-width: 520px;
+    box-sizing:border-box;
 
-    background: #0b0f3d;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
 
-    border-right: 3px solid #ff0000;
+    background:
+        radial-gradient(circle at top,#123b90 0%,#081b45 45%,#020817 100%);
 
-    display: flex;
+    border-right:1px solid rgba(255,255,255,.08);
 
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: space-evenly;
-
-    padding: 20px;
-
-    box-sizing: border-box;
+    box-shadow:10px 0 25px rgba(0,0,0,.45);
 }
 
-/* ===================================================== */
-/* DATUM */
-/* ===================================================== */
+/* =======================================================
+   DATUM
+   ======================================================= */
 
-#date {
+#date{
 
-    font-size: clamp(28px, 2vw, 48px);
+    position:relative;
 
-    font-weight: bold;
+    padding:18px 20px 18px 82px;
 
-    text-align: center;
+    border-radius:18px;
+
+    background:linear-gradient(180deg,#123d8c,#0a265f);
+
+    font-size:34px;
+    font-weight:700;
+    line-height:1.2;
+
+    text-align:left;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.05),
+        0 10px 22px rgba(0,0,0,.35);
 }
 
-/* ===================================================== */
-/* NADPISY */
-/* ===================================================== */
+#date::before{
+
+    content:"📅";
+
+    position:absolute;
+
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:linear-gradient(180deg,#2b7cff,#1655d1);
+
+    font-size:25px;
+
+    box-shadow:0 5px 15px rgba(0,90,255,.35);
+}
+
+/* =======================================================
+   KARTY
+   ======================================================= */
+
+#sidebar section{
+
+    position:relative;
+
+    padding:16px 18px 16px 82px;
+
+    border-radius:18px;
+
+    background:linear-gradient(180deg,#10367c,#071f4d);
+
+    border:1px solid rgba(255,255,255,.05);
+
+    min-height:72px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 8px 20px rgba(0,0,0,.35);
+}
+
+/* ikonové boxy */
+
+#sidebar section::before{
+
+    position:absolute;
+
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:48px;
+    height:48px;
+
+    border-radius:14px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:23px;
+}
+
+/* jednotlivé ikony */
+
+#sidebar section:nth-of-type(1)::before{
+    content:"👤";
+    background:linear-gradient(180deg,#2c7cff,#1756d2);
+}
+
+#sidebar section:nth-of-type(2)::before{
+    content:"🇺🇦";
+    background:linear-gradient(180deg,#ffd84c,#d59c00);
+}
+
+#sidebar section:nth-of-type(3)::before{
+    content:"📅";
+    background:linear-gradient(180deg,#ff6666,#c93030);
+}
+
+#sidebar section:nth-of-type(4)::before{
+    content:"🎄";
+    background:linear-gradient(180deg,#1fe36e,#0a9543);
+}
+
+#sidebar section:nth-of-type(5)::before{
+    content:"🧳";
+    background:linear-gradient(180deg,#c96cff,#7d30d8);
+}
+
+#sidebar section:nth-of-type(6)::before{
+    content:"☁️";
+    background:linear-gradient(180deg,#3cc6ff,#1763d5);
+}
+
+/* =======================================================
+   NADPISY
+   ======================================================= */
 
 #nameday-title,
 #ua-title,
 #holiday-title,
 #countdown-title,
-#vacation-title {
+#vacation-title,
+#weather-title{
 
-    font-size: clamp(18px, 1.2vw, 28px);
+    margin:0 0 6px;
 
-    color: #bbbbbb;
+    color:#9eb7e7;
 
-    margin-bottom: 10px;
+    text-transform:uppercase;
 
-    text-align: center;
+    letter-spacing:1px;
 
-    margin-top: 25px;
-}
-    #vacation {
+    font-size:12px;
+    font-weight:600;
 
-    font-size: clamp(20px, 1.6vw, 36px);
-
-    font-weight: bold;
-
-    color: #66ccff;
-
-    text-align: center;
-
-    line-height: 1.4;
-
-    padding: 0 15px;
+    text-align:left;
 }
 
-/* ===================================================== */
-/* ČESKÝ SVÁTEK */
-/* ===================================================== */
+/* =======================================================
+   HODNOTY
+   ======================================================= */
 
-#nameday {
+#nameday{
 
-    font-size: clamp(32px, 2.5vw, 60px);
+    font-size:34px;
+    font-weight:800;
 
-    font-weight: bold;
+    color:#fff;
 
-    text-align: center;
+    text-align:left;
 
-    padding: 0 20px;
+    padding:0;
 }
 
-/* ===================================================== */
-/* UKRAJINSKÝ SVÁTEK */
-/* ===================================================== */
+#ua-nameday{
 
-#ua-nameday {
+    font-size:34px;
+    font-weight:800;
 
-    font-size: clamp(26px, 2vw, 50px);
+    color:#ffd400;
 
-    font-weight: bold;
+    text-align:left;
 
-    color: #ffd700;
-
-    text-align: center;
-
-    padding: 0 20px;
+    padding:0;
 }
 
-/* ===================================================== */
-/* STÁTNÍ SVÁTEK */
-/* ===================================================== */
+#holiday{
 
-#holiday {
+    font-size:20px;
+    font-weight:800;
 
-    font-size: clamp(18px, 1.3vw, 34px);
+    color:#ff4d4d;
 
-    font-weight: bold;
+    line-height:1.35;
 
-    color: #ff5555;
+    text-align:left;
 
-    text-align: center;
-
-    line-height: 1.4;
-
-    padding: 0 20px;
+    padding:0;
 }
 
-/* ===================================================== */
-/* VÁNOCE */
-/* ===================================================== */
+#countdown{
 
-#countdown {
+    font-size:38px;
+    font-weight:800;
 
-    font-size: clamp(24px, 2vw, 44px);
+    color:#22ef7b;
 
-    font-weight: bold;
+    text-align:left;
 
-    color: #66ff99;
-
-    text-align: center;
-
-    line-height: 1.3;
+    padding:0;
 }
 
-/* ===================================================== */
-/* PRAVÁ ČÁST */
-/* ===================================================== */
+#vacation{
 
-#content {
+    font-size:18px;
+    font-weight:700;
 
-    position: relative;
+    color:#d96cff;
 
-    flex: 1;
+    line-height:1.5;
 
-    display: flex;
+    text-align:left;
 
-    background: black;
-
-    overflow: hidden;
+    padding:0;
 }
 
-/* ===================================================== */
-/* OBRÁZEK */
-/* ===================================================== */
+#weather{
 
-#slideImage {
+    font-size:18px;
+    font-weight:700;
 
-    position: absolute;
+    color:#ffffff;
 
-    top: 0;
-    left: 0;
+    line-height:1.4;
 
-    width: 100%;
+    text-align:left;
 
-    height: 100%;
-
-    object-fit: contain;
-
-    background: black;
-
-    display: none;
-
-    z-index: 1;
+    padding:0;
 }
 
-/* ===================================================== */
-/* IFRAME */
-/* ===================================================== */
+/* teplota větší */
 
-#contentFrame {
+#weather::first-line{
 
-    position: absolute;
+    color:#57caff;
 
-    top: 0;
-    left: 0;
-
-    width: 100%;
-
-    height: 100%;
-
-    border: none;
-
-    background: black;
-
-    display: none;
-
-    z-index: 2;
-}
-/* ===================================================== */
-/* SPODNÍ LIŠTA */
-/* ===================================================== */
-
-#ticker-bar {
-
-    width: 100vw;
-
-    height: 70px;
-
-    background: #0b0f3d;
-
-    border-top: 3px solid #ff0000;
-
-    overflow: hidden;
-
-    display: flex;
-
-    align-items: center;
+    font-size:34px;
+    font-weight:800;
 }
 
-/* ===================================================== */
-/* BĚŽÍCÍ TEXT */
-/* ===================================================== */
-    /*
-    #ticker { white-space: nowrap; 
-             color: white; 
-             font-size: clamp(24px, 1.6vw, 42px); 
-             font-weight: bold; 
-             letter-spacing: 1px; 
-             display: inline-block; 
-             will-change: transform; 
-             transform: translateZ(0); 
-             animation: tickerMove 25s linear infinite; }
-    */
+/* =======================================================
+   PRAVÁ ČÁST
+   ======================================================= */
 
-    #ticker {
-    white-space: nowrap;
-    color: white;
-    font-size: clamp(24px, 1.6vw, 42px);
-    font-weight: bold;
-    letter-spacing: 1px;
+#content{
 
-    width: 100%;
-    text-align: center;
-    }
-    
-        .ticker-green {
-    color: #00ff66;
-    font-weight: bold;
-    }
-    
-    .ticker-yellow {
-        color: #ffd400;
-        font-weight: bold;
-    }
-    
-    .ticker-blue {
-        color: #4db8ff;
-        font-weight: bold;
-    }
-    
-    .ticker-orange {
-        color: #ff8c00;
-        font-weight: bold;
-    }
+    position:relative;
 
-/* ===================================================== */
-/* ANIMACE */
-/* ===================================================== */
+    flex:1;
 
- /*
-    @keyframes tickerMove { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
-    */    
+    display:flex;
 
-/* ===================================================== */
-/* POČASÍ */
-/* ===================================================== */
+    background:#000;
 
-#weather-title {
-
-    font-size: clamp(18px, 1.2vw, 28px);
-
-    color: #bbbbbb;
-
-    margin-top: 25px;
-
-    margin-bottom: 10px;
-
-    text-align: center;
+    overflow:hidden;
 }
 
-#weather {
+/* =======================================================
+   OBRÁZEK
+   ======================================================= */
 
-    font-size: clamp(24px, 2vw, 42px);
+#slideImage{
 
-    font-weight: bold;
+    position:absolute;
 
-    color: #66ccff;
+    inset:0;
 
-    text-align: center;
+    width:100%;
+    height:100%;
 
-    line-height: 1.4;
+    object-fit:contain;
 
-    padding: 0 10px;
+    background:#000;
+
+    display:none;
+
+    z-index:1;
 }
 
-/* ===================================================== */
-/* TIMER */
-/* ===================================================== */
-    #slideTimer {
+/* =======================================================
+   IFRAME
+   ======================================================= */
 
-    position: absolute;
+#contentFrame{
 
-    top: 10px;
-    right: 10px;
+    position:absolute;
 
-    width: 60px;
-    height: 60px;
+    inset:0;
 
-    z-index: 9999;
+    width:100%;
+    height:100%;
 
-    background: rgba(0, 0, 0, 0.55);
+    border:none;
 
-    border-radius: 50%;
+    background:#000;
 
-    backdrop-filter: blur(3px);
+    display:none;
+
+    z-index:2;
 }
 
-#slideTimer svg {
+/* =======================================================
+   SPODNÍ LIŠTA
+   ======================================================= */
 
-    position: absolute;
+#ticker-bar{
 
-    width: 60px;
-    height: 60px;
+    width:100vw;
 
-    transform: rotate(-90deg);
+    height:70px;
+
+    display:flex;
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(180deg,#082a71,#041631);
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 -8px 20px rgba(0,0,0,.35);
 }
 
-.timer-bg {
+#ticker{
 
-    fill: none;
+    width:100%;
 
-    stroke: rgba(255,255,255,0.2);
+    text-align:center;
 
-    stroke-width: 3;
+    white-space:nowrap;
+
+    color:#fff;
+
+    font-size:26px;
+    font-weight:700;
+
+    letter-spacing:.5px;
 }
 
-.timer-progress {
-
-    fill: none;
-
-    stroke: white;
-
-    stroke-width: 3;
-
-    stroke-linecap: round;
-
-    stroke-dasharray: 163;
-
-    stroke-dashoffset: 0;
-
-    transition: stroke-dashoffset 1s linear;
+.ticker-green{
+    color:#17ef7d;
 }
 
-#timerText {
+.ticker-yellow{
+    color:#ffd400;
+}
 
-    position: absolute;
+.ticker-blue{
+    color:#4dbbff;
+}
 
-    inset: 0;
+.ticker-orange{
+    color:#ff9800;
+}
 
-    display: flex;
+/* =======================================================
+   POČASÍ
+   ======================================================= */
 
-    justify-content: center;
+#weather-title{
+    margin-top:0;
+    margin-bottom:6px;
+}
 
-    align-items: center;
+/* =======================================================
+   TIMER
+   ======================================================= */
 
-    font-size: 22px;
+#slideTimer{
 
-    font-weight: bold;
+    position:absolute;
 
-    color: white;
+    top:12px;
+    right:12px;
+
+    width:60px;
+    height:60px;
+
+    z-index:9999;
+
+    background:rgba(0,0,0,.45);
+
+    border-radius:50%;
+
+    backdrop-filter:blur(6px);
+
+    box-shadow:0 0 18px rgba(0,0,0,.45);
+}
+
+#slideTimer svg{
+
+    position:absolute;
+
+    width:60px;
+    height:60px;
+
+    transform:rotate(-90deg);
+}
+
+.timer-bg{
+
+    fill:none;
+
+    stroke:rgba(255,255,255,.15);
+
+    stroke-width:3;
+}
+
+.timer-progress{
+
+    fill:none;
+
+    stroke:white;
+
+    stroke-width:3;
+
+    stroke-linecap:round;
+
+    stroke-dasharray:163;
+
+    stroke-dashoffset:0;
+
+    transition:stroke-dashoffset 1s linear;
+}
+
+#timerText{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+    font-weight:bold;
+
+    color:white;
 
     text-shadow:
         0 0 4px black,
