@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>ZAMET TEST V2</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================================================= -->
+<!-- HLAVNÍ LAYOUT -->
+<!-- ================================================= -->
+
+<div id="main">
+
+    <!-- ============================================= -->
+    <!-- LEVÝ PANEL -->
+    <!-- ============================================= -->
+
+    <div id="sidebar">
+
+        <!-- DATUM -->
+
+        <div id="date"></div>
+
+        <!-- ČESKÝ SVÁTEK -->
+
+        <section>
+
+            <div id="nameday-title">
+                Dnes má svátek
+            </div>
+
+            <div id="nameday"></div>
+
+        </section>
+
+        <!-- UKRAJINSKÝ SVÁTEK -->
+
+        <section>
+
+            <div id="ua-title">
+                Ukrajinský svátek
+            </div>
+
+            <div id="ua-nameday"></div>
+
+        </section>
+
+        <!-- STÁTNÍ SVÁTEK -->
+
+        <section>
+
+            <div id="holiday-title">
+                Nejbližší státní svátek
+            </div>
+
+            <div id="holiday"></div>
+
+        </section>
+
+        <!-- VÁNOCE -->
+
+        <section>
+
+            <div id="countdown-title">
+                Vánoce za
+            </div>
+
+            <div id="countdown"></div>
+
+        </section>
+
+        <!-- CELOZÁVODNÍ DOVOLENÁ -->
+
+        <section>
+
+            <div id="vacation-title">
+                Celozávodní dovolená
+            </div>
+
+            <div id="vacation"></div>
+
+        </section>
+
+        <!-- POČASÍ -->
+
+        <section>
+
+            <div id="weather-title">
+                Počasí Halenkov 756 03
+            </div>
+
+            <div id="weather">
+                Načítání...
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- ============================================= -->
+    <!-- PRAVÁ ČÁST -->
+    <!-- ============================================= -->
+
+    <div id="content">
+
+    <!-- TIMER -->
+
+    <div id="slideTimer">
+
+        <svg width="60" height="60">
+
+            <circle
+                cx="30"
+                cy="30"
+                r="26"
+                class="timer-bg">
+            </circle>
+
+            <circle
+                id="timerCircle"
+                cx="30"
+                cy="30"
+                r="26"
+                class="timer-progress">
+            </circle>
+
+        </svg>
+
+        <span id="timerText">
+            20
+        </span>
+
+    </div>
+
+    <!-- OBRÁZEK -->
+
+    <img
+        id="slideImage"
+        src=""
+        alt="Obsah">
+
+    <!-- IFRAME -->
+
+    <iframe
+        id="contentFrame"
+        src=""
+        frameborder="0">
+    </iframe>
+
+</div>
+</div>
+
+<!-- ================================================= -->
+<!-- SPODNÍ LIŠTA -->
+<!-- ================================================= -->
+
+<div id="ticker-bar">
+
+    <div id="ticker">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <span class="ticker-green">Hledáme nové kolegy</span>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <span class="ticker-yellow">Kariéra ZAMET</span>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    Více informací:
+    <span class="ticker-yellow">karierazamet.cz</span>
+    <span class="ticker-blue">Tel: +420 605 524 530</span>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <span class="ticker-orange">Nástup možný ihned</span>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- SVÁTKY -->
+<!-- ================================================= -->
+
+<script src="js/svatek.js"></script>
+<script src="js/config.js"></script>
+<script src="js/player.js"></script>
+<script src="js/info.js"></script>
+<script src="js/weather.js"></script>
+
+</body>
+</html>
