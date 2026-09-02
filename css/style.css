@@ -1,6 +1,6 @@
 /* =======================================================
-   ZAMET TV V5 - RESPONSIVE
-   Funguje na notebooku, PC i TV
+   ZAMET TV V6 - RESPONSIVE + TV READY
+   Notebook • PC • FullHD TV • 4K TV
    ======================================================= */
 
 /* =======================================================
@@ -27,34 +27,36 @@ body{
 #main{
     display:flex;
     width:100vw;
-    height:calc(100vh - clamp(56px,3.5vw,70px));
+    height:calc(100vh - clamp(56px,3.4vw,68px));
     background:#020817;
 }
 
 /* =======================================================
-   SIDEBAR
+   LEVÝ PANEL
    ======================================================= */
 
 #sidebar{
 
-    width:clamp(280px,19vw,360px);
-    min-width:280px;
-    max-width:360px;
+    width:clamp(285px,18vw,340px);
+    min-width:285px;
+    max-width:340px;
 
-    padding:clamp(10px,0.8vw,18px);
-
-    display:flex;
-    flex-direction:column;
-    gap:clamp(8px,0.7vh,12px);
+    padding:clamp(10px,.8vw,16px);
 
     box-sizing:border-box;
 
+    display:flex;
+    flex-direction:column;
+    gap:clamp(8px,.6vh,12px);
+
     background:
-        radial-gradient(circle at top,#184da9 0%,#0a265b 40%,#03101f 100%);
+        radial-gradient(circle at top,#184DA8 0%,#0C285F 40%,#020817 100%);
 
     border-right:1px solid rgba(255,255,255,.08);
 
-    box-shadow:8px 0 24px rgba(0,0,0,.35);
+    box-shadow:
+        inset -1px 0 rgba(255,255,255,.03),
+        8px 0 24px rgba(0,0,0,.35);
 }
 
 /* =======================================================
@@ -66,24 +68,23 @@ body{
     position:relative;
 
     padding:
-        clamp(12px,.9vw,18px)
-        clamp(14px,1vw,18px)
-        clamp(12px,.9vw,18px)
-        clamp(58px,4vw,74px);
+        clamp(14px,.9vw,18px)
+        clamp(14px,.9vw,18px)
+        clamp(14px,.9vw,18px)
+        clamp(60px,4vw,74px);
 
-    border-radius:clamp(14px,1vw,20px);
+    border-radius:18px;
 
-    background:linear-gradient(180deg,#133d8c,#082352);
+    background:linear-gradient(180deg,#123D8B,#092451);
 
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,.05),
-        0 8px 18px rgba(0,0,0,.30);
+        0 6px 16px rgba(0,0,0,.28);
 
-    text-align:left;
-
-    font-size:clamp(18px,1.3vw,30px);
+    font-size:clamp(20px,1.2vw,30px);
     font-weight:700;
     line-height:1.3;
+    text-align:left;
 }
 
 #date::before{
@@ -92,25 +93,24 @@ body{
 
     position:absolute;
 
-    left:clamp(12px,.8vw,16px);
+    left:14px;
     top:50%;
-
     transform:translateY(-50%);
 
-    width:clamp(38px,2vw,50px);
-    height:clamp(38px,2vw,50px);
+    width:38px;
+    height:38px;
 
-    border-radius:12px;
+    border-radius:11px;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    font-size:clamp(18px,1vw,24px);
+    font-size:18px;
 
-    background:linear-gradient(180deg,#2d83ff,#1757d5);
+    background:linear-gradient(180deg,#2D82FF,#1758D5);
 
-    box-shadow:0 4px 12px rgba(0,100,255,.30);
+    box-shadow:0 3px 10px rgba(0,90,255,.35);
 }
 
 /* =======================================================
@@ -121,81 +121,87 @@ body{
 
     position:relative;
 
-    padding:
-        clamp(10px,.7vw,14px)
-        clamp(12px,.8vw,16px)
-        clamp(10px,.7vw,14px)
-        clamp(58px,4vw,74px);
+    padding:12px 14px 12px 60px;
 
-    min-height:clamp(54px,5vh,72px);
+    min-height:58px;
 
-    border-radius:clamp(14px,1vw,18px);
+    border-radius:16px;
 
     background:
-        linear-gradient(180deg,#10367d,#071d46);
+        linear-gradient(180deg,#10367B,#081F4A);
 
     border:1px solid rgba(255,255,255,.05);
 
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,.04),
-        0 6px 16px rgba(0,0,0,.25);
+        0 5px 14px rgba(0,0,0,.28);
+}
+
+/* Hover jen na PC */
+
+@media (hover:hover){
+
+    #sidebar section:hover{
+        transform:translateY(-1px);
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.05),
+            0 8px 18px rgba(0,0,0,.35);
+    }
+
 }
 
 /* =======================================================
-   IKONOVÉ BOXÍKY
+   IKONY
    ======================================================= */
 
 #sidebar section::before{
 
     position:absolute;
 
-    left:clamp(12px,.8vw,16px);
+    left:14px;
     top:50%;
-
     transform:translateY(-50%);
 
-    width:clamp(38px,2vw,48px);
-    height:clamp(38px,2vw,48px);
+    width:34px;
+    height:34px;
 
-    border-radius:12px;
+    border-radius:10px;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    font-size:clamp(18px,1vw,22px);
+    font-size:16px;
 }
-
-/* Barvy ikon */
 
 #sidebar section:nth-of-type(1)::before{
     content:"👤";
-    background:linear-gradient(180deg,#2d83ff,#1757d5);
+    background:linear-gradient(180deg,#2D82FF,#1855D0);
 }
 
 #sidebar section:nth-of-type(2)::before{
     content:"🇺🇦";
-    background:linear-gradient(180deg,#ffd84c,#d99d00);
+    background:linear-gradient(180deg,#FFD84C,#D59C00);
 }
 
 #sidebar section:nth-of-type(3)::before{
     content:"📅";
-    background:linear-gradient(180deg,#ff6565,#cb3030);
+    background:linear-gradient(180deg,#FF6565,#CB3030);
 }
 
 #sidebar section:nth-of-type(4)::before{
     content:"🎄";
-    background:linear-gradient(180deg,#23df73,#0b9444);
+    background:linear-gradient(180deg,#22DE72,#0B9444);
 }
 
 #sidebar section:nth-of-type(5)::before{
     content:"🧳";
-    background:linear-gradient(180deg,#c66cff,#7b30d7);
+    background:linear-gradient(180deg,#C56BFF,#7B30D8);
 }
 
 #sidebar section:nth-of-type(6)::before{
     content:"☁️";
-    background:linear-gradient(180deg,#42c9ff,#1662d4);
+    background:linear-gradient(180deg,#42C8FF,#1662D4);
 }
 
 /* =======================================================
@@ -211,13 +217,13 @@ body{
 
     margin:0 0 4px;
 
-    color:#8fa9d8;
+    color:#92A9D8;
 
     text-transform:uppercase;
 
-    letter-spacing:1px;
+    letter-spacing:.8px;
 
-    font-size:clamp(10px,.6vw,12px);
+    font-size:clamp(10px,.55vw,12px);
     font-weight:600;
 
     text-align:left;
@@ -229,84 +235,80 @@ body{
 
 #nameday{
 
-    font-size:clamp(20px,1.5vw,34px);
+    font-size:clamp(22px,1.45vw,34px);
     font-weight:800;
+    color:#fff;
 
-    color:white;
-
-    text-align:left;
     padding:0;
+    text-align:left;
 }
 
 #ua-nameday{
 
-    font-size:clamp(20px,1.5vw,34px);
+    font-size:clamp(22px,1.45vw,34px);
     font-weight:800;
+    color:#FFD400;
 
-    color:#ffd400;
-
-    text-align:left;
     padding:0;
+    text-align:left;
 }
 
 #holiday{
 
-    font-size:clamp(15px,1vw,20px);
+    font-size:clamp(15px,.95vw,20px);
     font-weight:700;
 
-    color:#ff5353;
+    color:#FF5353;
 
-    line-height:1.3;
+    line-height:1.25;
 
-    text-align:left;
     padding:0;
+    text-align:left;
 }
 
 #countdown{
 
-    font-size:clamp(22px,1.8vw,38px);
+    font-size:clamp(24px,1.7vw,38px);
     font-weight:800;
 
-    color:#22ef7a;
+    color:#20EF79;
 
-    text-align:left;
     padding:0;
+    text-align:left;
 }
 
 #vacation{
 
-    font-size:clamp(13px,.9vw,17px);
+    font-size:clamp(13px,.85vw,16px);
     font-weight:700;
 
-    color:#d86bff;
+    color:#D56BFF;
 
-    line-height:1.45;
+    line-height:1.35;
 
-    text-align:left;
     padding:0;
+    text-align:left;
 }
 
 #weather{
 
-    font-size:clamp(14px,.95vw,18px);
+    font-size:clamp(13px,.85vw,17px);
     font-weight:600;
 
     color:white;
 
-    line-height:1.35;
+    line-height:1.3;
 
-    text-align:left;
     padding:0;
+    text-align:left;
 }
-
-/* První řádek = teplota */
 
 #weather::first-line{
 
-    font-size:clamp(22px,1.7vw,34px);
+    font-size:clamp(24px,1.5vw,34px);
     font-weight:800;
 
-    color:#58cbff;
+    color:#59CAFF;
 }
 
 /* =======================================================
@@ -326,10 +328,6 @@ body{
     overflow:hidden;
 }
 
-/* =======================================================
-   OBRÁZEK
-   ======================================================= */
-
 #slideImage{
 
     position:absolute;
@@ -346,10 +344,6 @@ body{
 
     z-index:1;
 }
-
-/* =======================================================
-   IFRAME
-   ======================================================= */
 
 #contentFrame{
 
@@ -375,19 +369,18 @@ body{
 #ticker-bar{
 
     width:100vw;
-    height:clamp(56px,3.5vw,70px);
+    height:clamp(56px,3.4vw,68px);
 
     display:flex;
     align-items:center;
 
     overflow:hidden;
 
-    background:
-        linear-gradient(180deg,#082c74,#04142d);
+    background:linear-gradient(180deg,#082B73,#031327);
 
     border-top:1px solid rgba(255,255,255,.08);
 
-    box-shadow:0 -6px 16px rgba(0,0,0,.30);
+    box-shadow:0 -5px 14px rgba(0,0,0,.30);
 }
 
 #ticker{
@@ -400,16 +393,16 @@ body{
 
     color:white;
 
-    font-size:clamp(15px,1vw,24px);
+    font-size:clamp(15px,.95vw,22px);
     font-weight:700;
 
-    letter-spacing:.4px;
+    letter-spacing:.3px;
 }
 
-.ticker-green{ color:#18ef7c; }
-.ticker-yellow{ color:#ffd43d; }
-.ticker-blue{ color:#4dbbff; }
-.ticker-orange{ color:#ff9800; }
+.ticker-green{color:#18EF7C;}
+.ticker-yellow{color:#FFD43D;}
+.ticker-blue{color:#4DBBFF;}
+.ticker-orange{color:#FF9800;}
 
 /* =======================================================
    TIMER
@@ -419,11 +412,11 @@ body{
 
     position:absolute;
 
-    top:clamp(8px,.6vw,12px);
-    right:clamp(8px,.6vw,12px);
+    top:10px;
+    right:10px;
 
-    width:clamp(46px,3vw,60px);
-    height:clamp(46px,3vw,60px);
+    width:clamp(46px,2.8vw,58px);
+    height:clamp(46px,2.8vw,58px);
 
     z-index:9999;
 
@@ -480,10 +473,27 @@ body{
     justify-content:center;
     align-items:center;
 
-    font-size:clamp(16px,1vw,22px);
+    font-size:clamp(15px,.9vw,20px);
     font-weight:700;
 
     color:white;
 
     text-shadow:0 0 8px black;
+}
+
+/* =======================================================
+   MALÉ NOTEBOOKY
+   ======================================================= */
+
+@media (max-width:1400px){
+
+    #sidebar{
+        width:280px;
+        min-width:280px;
+    }
+
+    #ticker{
+        font-size:15px;
+    }
+
 }
