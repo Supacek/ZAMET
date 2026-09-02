@@ -1,6 +1,6 @@
 /* =======================================================
-   ZAMET TV V7
-   Dashboard styl (Notebook + TV)
+   ZAMET TV V8 PREMIUM
+   Notebook • FullHD TV • 4K TV
    ======================================================= */
 
 /* =======================================================
@@ -15,9 +15,10 @@ body{
     overflow:hidden;
 
     background:#020817;
-    color:white;
+    color:#fff;
 
     font-family:"Segoe UI",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
 }
 
 /* =======================================================
@@ -27,7 +28,7 @@ body{
 #main{
     display:flex;
     width:100vw;
-    height:calc(100vh - clamp(58px,3vw,72px));
+    height:calc(100vh - clamp(58px,3vw,68px));
     background:#020817;
 }
 
@@ -37,9 +38,7 @@ body{
 
 #sidebar{
 
-    width:clamp(285px,18vw,340px);
-    min-width:285px;
-    max-width:340px;
+    flex:0 0 clamp(285px,17vw,330px);
 
     padding:12px;
     box-sizing:border-box;
@@ -49,11 +48,19 @@ body{
     gap:10px;
 
     background:
-        radial-gradient(circle at top,#1748A5 0%,#0B285F 40%,#020817 100%);
+        radial-gradient(circle at top left,
+            #275FC8 0%,
+            #19499E 15%,
+            #10336F 32%,
+            #081D45 55%,
+            #041124 80%,
+            #020817 100%);
 
-    border-right:1px solid rgba(255,255,255,.05);
+    border-right:1px solid rgba(255,255,255,.06);
 
-    box-shadow:8px 0 22px rgba(0,0,0,.35);
+    box-shadow:
+        inset -1px 0 rgba(255,255,255,.05),
+        10px 0 28px rgba(0,0,0,.45);
 }
 
 /* =======================================================
@@ -61,6 +68,9 @@ body{
    ======================================================= */
 
 .info-card{
+
+    position:relative;
+    overflow:hidden;
 
     display:flex;
     align-items:center;
@@ -70,20 +80,47 @@ body{
 
     border-radius:18px;
 
-    background:linear-gradient(180deg,#12387E,#081F49);
+    background:
+        linear-gradient(180deg,
+            #123A82 0%,
+            #0B285F 55%,
+            #071B42 100%);
 
     border:1px solid rgba(255,255,255,.05);
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.05),
-        0 5px 15px rgba(0,0,0,.28);
-
-    transition:.25s;
+        inset 0 1px 0 rgba(255,255,255,.08),
+        inset 0 -1px 0 rgba(0,0,0,.20),
+        0 8px 18px rgba(0,0,0,.35);
 }
+
+/* horní lesk */
+
+.info-card::after{
+
+    content:"";
+
+    position:absolute;
+    inset:1px;
+
+    border-radius:17px;
+
+    background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,0) 38%
+    );
+
+    pointer-events:none;
+}
+
+/* datum karta */
 
 .date-card{
     padding:16px 14px;
 }
+
+/* obsah */
 
 .card-content{
     flex:1;
@@ -96,50 +133,56 @@ body{
 
 .icon-box{
 
-    width:48px;
-    height:48px;
+    width:46px;
+    height:46px;
 
-    border-radius:14px;
+    border-radius:13px;
 
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
     flex-shrink:0;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.25),
+        0 6px 14px rgba(0,0,0,.28);
 }
 
 .icon-box svg{
 
-    width:26px;
-    height:26px;
+    width:23px;
+    height:23px;
 
     stroke:white;
-    stroke-width:2;
+    stroke-width:2.2;
     fill:none;
 }
 
+/* Barvy ikon */
+
 .blue{
-    background:linear-gradient(#2F82FF,#1757D5);
+    background:linear-gradient(180deg,#3392FF,#1757D5);
 }
 
 .yellow{
-    background:linear-gradient(#FFD84C,#D59C00);
+    background:linear-gradient(180deg,#FFD84B,#D79A00);
 }
 
 .red{
-    background:linear-gradient(#FF6666,#C93030);
+    background:linear-gradient(180deg,#FF6767,#CB3030);
 }
 
 .green{
-    background:linear-gradient(#23DE73,#0A9444);
+    background:linear-gradient(180deg,#24E073,#0A9445);
 }
 
 .purple{
-    background:linear-gradient(#C86CFF,#7B30D8);
+    background:linear-gradient(180deg,#CB70FF,#7B30D8);
 }
 
 .cyan{
-    background:linear-gradient(#40C8FF,#1763D5);
+    background:linear-gradient(180deg,#44CBFF,#1864D6);
 }
 
 /* =======================================================
@@ -148,9 +191,22 @@ body{
 
 #date{
 
-    font-size:clamp(19px,1.3vw,30px);
+    font-size:clamp(20px,1.35vw,30px);
     font-weight:700;
-    line-height:1.3;
+    line-height:1.15;
+    color:white;
+}
+
+/* pokud přidáš den v týdnu */
+
+#weekday{
+
+    margin-top:4px;
+
+    color:#A8BEEA;
+
+    font-size:14px;
+    font-weight:500;
 }
 
 /* =======================================================
@@ -164,16 +220,16 @@ body{
 #vacation-title,
 #weather-title{
 
-    color:#9FB7E6;
+    color:#9FB8E8;
 
     text-transform:uppercase;
 
-    letter-spacing:.8px;
+    letter-spacing:1px;
 
-    font-size:11px;
-    font-weight:600;
+    font-size:10px;
+    font-weight:700;
 
-    margin-bottom:4px;
+    margin-bottom:5px;
 }
 
 /* =======================================================
@@ -182,53 +238,59 @@ body{
 
 #nameday{
 
-    font-size:clamp(24px,1.5vw,36px);
+    font-size:clamp(23px,1.55vw,34px);
     font-weight:800;
-    color:white;
+    line-height:1.05;
+    color:#fff;
 }
 
 #ua-nameday{
 
-    font-size:clamp(24px,1.5vw,36px);
+    font-size:clamp(23px,1.55vw,34px);
     font-weight:800;
+    line-height:1.05;
     color:#FFD400;
 }
 
 #holiday{
 
-    font-size:clamp(15px,1vw,20px);
+    font-size:clamp(16px,1vw,20px);
     font-weight:700;
-    color:#FF5050;
     line-height:1.25;
+    color:#FF4F4F;
 }
 
 #countdown{
 
-    font-size:clamp(28px,1.8vw,42px);
-    font-weight:800;
-    color:#1EF078;
+    font-size:clamp(30px,1.9vw,42px);
+    font-weight:900;
+    line-height:1;
+    color:#22EF79;
 }
 
 #vacation{
 
-    font-size:clamp(13px,.9vw,17px);
+    font-size:clamp(13px,.88vw,16px);
     font-weight:700;
-    color:#D66CFF;
-    line-height:1.45;
+    line-height:1.35;
+    color:#DB6CFF;
 }
 
 #weather{
 
-    font-size:15px;
+    font-size:14px;
     font-weight:600;
-    line-height:1.35;
+    line-height:1.3;
+    color:#fff;
 }
+
+/* Teplota */
 
 #weather::first-line{
 
-    font-size:clamp(26px,1.7vw,38px);
+    font-size:clamp(28px,1.8vw,38px);
     font-weight:800;
-    color:#59CAFF;
+    color:#59CBFF;
 }
 
 /* =======================================================
@@ -238,13 +300,13 @@ body{
 #content{
 
     position:relative;
-
     flex:1;
 
-    background:black;
-
+    background:#000;
     overflow:hidden;
 }
+
+/* obrázky */
 
 #slideImage{
 
@@ -256,12 +318,13 @@ body{
 
     object-fit:contain;
 
-    background:black;
+    background:#000;
 
     display:none;
-
     z-index:1;
 }
+
+/* iframe */
 
 #contentFrame{
 
@@ -273,10 +336,9 @@ body{
 
     border:none;
 
-    background:black;
+    background:#000;
 
     display:none;
-
     z-index:2;
 }
 
@@ -286,44 +348,45 @@ body{
 
 #ticker-bar{
 
-    height:clamp(58px,3vw,70px);
+    height:clamp(58px,3vw,66px);
 
     display:flex;
     align-items:center;
-    justify-content:center;
 
-    background:linear-gradient(180deg,#082C73,#031326);
+    background:
+        linear-gradient(180deg,#0B347E,#04142B);
 
-    border-top:1px solid rgba(255,255,255,.06);
+    border-top:1px solid rgba(255,255,255,.08);
 
-    box-shadow:0 -5px 14px rgba(0,0,0,.35);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.05),
+        0 -8px 20px rgba(0,0,0,.40);
 }
 
 #ticker{
 
     width:100%;
 
+    white-space:nowrap;
     text-align:center;
 
-    white-space:nowrap;
+    color:#fff;
 
-    font-size:clamp(15px,1vw,22px);
+    font-size:clamp(15px,.95vw,22px);
     font-weight:700;
 
-    color:white;
+    letter-spacing:.2px;
 }
+
+.ticker-green{color:#20F078;}
+.ticker-yellow{color:#FFD43D;}
+.ticker-blue{color:#48BEFF;}
+.ticker-orange{color:#FF9800;}
 
 .divider{
-
-    color:rgba(255,255,255,.4);
-
+    color:rgba(255,255,255,.35);
     margin:0 18px;
 }
-
-.ticker-green{color:#1EF078;}
-.ticker-yellow{color:#FFD43D;}
-.ticker-blue{color:#42B9FF;}
-.ticker-orange{color:#FF9800;}
 
 /* =======================================================
    TIMER
@@ -344,6 +407,8 @@ body{
     background:rgba(0,0,0,.45);
 
     backdrop-filter:blur(6px);
+
+    box-shadow:0 0 18px rgba(0,0,0,.45);
 
     z-index:999;
 }
@@ -369,7 +434,7 @@ body{
 
     fill:none;
 
-    stroke:white;
+    stroke:#FFFFFF;
 
     stroke-width:3;
 
@@ -386,13 +451,15 @@ body{
     inset:0;
 
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
     font-size:18px;
     font-weight:700;
 
-    text-shadow:0 0 8px black;
+    color:#fff;
+
+    text-shadow:0 0 8px #000;
 }
 
 /* =======================================================
@@ -402,38 +469,75 @@ body{
 @media (max-width:1400px){
 
     #sidebar{
-        width:280px;
-        min-width:280px;
-    }
-
-    .icon-box{
-        width:44px;
-        height:44px;
-    }
-
-    .icon-box svg{
-        width:24px;
-        height:24px;
+        flex-basis:275px;
     }
 
     .info-card{
         padding:12px;
         gap:12px;
     }
+
+    .icon-box{
+        width:42px;
+        height:42px;
+    }
+
+    .icon-box svg{
+        width:21px;
+        height:21px;
+    }
+
+    #nameday,
+    #ua-nameday{
+        font-size:22px;
+    }
+
+    #countdown{
+        font-size:32px;
+    }
+
+    #ticker{
+        font-size:15px;
+    }
 }
 
 /* =======================================================
-   VELKÉ TV (4K)
+   FULL HD TV
+   ======================================================= */
+
+@media (min-width:1920px){
+
+    #sidebar{
+        flex-basis:315px;
+    }
+
+    .info-card{
+        padding:15px;
+    }
+
+    .icon-box{
+        width:48px;
+        height:48px;
+    }
+
+    .icon-box svg{
+        width:24px;
+        height:24px;
+    }
+}
+
+/* =======================================================
+   4K TV
    ======================================================= */
 
 @media (min-width:2560px){
 
     #sidebar{
-        width:340px;
+        flex-basis:340px;
     }
 
     .info-card{
-        padding:16px;
+        padding:18px;
     }
 
     .icon-box{
@@ -442,7 +546,20 @@ body{
     }
 
     .icon-box svg{
-        width:28px;
-        height:28px;
+        width:27px;
+        height:27px;
+    }
+
+    #nameday,
+    #ua-nameday{
+        font-size:34px;
+    }
+
+    #countdown{
+        font-size:44px;
+    }
+
+    #ticker{
+        font-size:22px;
     }
 }
