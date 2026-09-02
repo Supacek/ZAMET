@@ -37,7 +37,7 @@ body{
    ======================================================= */
 
 #sidebar{
-    flex:0 0 clamp(285px,17vw,330px);
+    flex:0 0 clamp(320px,20vw,380px);
 
     padding:12px;
     box-sizing:border-box;
