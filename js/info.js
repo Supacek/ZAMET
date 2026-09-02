@@ -121,36 +121,19 @@ document.getElementById("countdown").innerHTML =
 /* ===================================================== */
 /* CELOZÁVODNÍ DOVOLENÁ */
 /* ===================================================== */
+const vacationStart = new Date(CONFIG.vacation.start);
+const vacationEnd = new Date(CONFIG.vacation.end);
 
-const vacationStart = new Date(
-
-    2026,
-    11,
-    28
-);
-
-const vacationEnd = new Date(
-
-    2026,
-    11,
-    31
-);
-
-const vacationDiff =
-
-    vacationStart - today;
+const vacationDiff = vacationStart - today;
 
 const vacationDays = Math.ceil(
-
     vacationDiff / (1000 * 60 * 60 * 24)
 );
 
 document.getElementById("vacation").innerHTML =
-
-    "28.12.2026 → 31.12.2026" +
-
+    vacationStart.toLocaleDateString("cs-CZ") +
+    " → " +
+    vacationEnd.toLocaleDateString("cs-CZ") +
     "<br>za " +
-
     vacationDays +
-
     " dní";
