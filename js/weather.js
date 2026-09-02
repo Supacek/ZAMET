@@ -3,46 +3,39 @@
 // =====================================================
 
 // Načtení nastavení z config.js
-const {
-    location: weatherLocation,
-    lat,
-    lon,
-    apiKey,
-    refresh
-} = CONFIG.weather;
+const weatherConfig = CONFIG.weather;
 
-// Nastaví nadpis z konfigurace
+// Nastaví nadpis
 document.getElementById("weather-title").textContent =
-    `Počasí ${weatherLocation}`;
+    `Počasí ${weatherConfig.location}`;
 
-// Funkce pro načtení počasí
 function loadWeather() {
 
     fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=cz&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${weatherConfig.lat}&lon=${weatherConfig.lon}&units=metric&lang=cz&appid=${weatherConfig.apiKey}`
     )
-        .then(response => response.json())
-        .then(data => {
+    .then(response => response.json())
+    .then(data => {
 
-            const temp = Math.round(data.main.temp);
-            const desc = data.weather[0].description;
+        const temp = Math.round(data.main.temp);
+        const desc = data.weather[0].description;
 
-            document.getElementById("weather").innerHTML =
-                `${temp}°C<br>${desc}`;
+        document.getElementById("weather").innerHTML =
+            `${temp}°C<br>${desc}`;
 
-        })
-        .catch(error => {
+    })
+    .catch(error => {
 
-            console.error("Počasí:", error);
+        console.error("Počasí:", error);
 
-            document.getElementById("weather").innerHTML =
-                "Počasí nedostupné";
-        });
+        document.getElementById("weather").innerHTML =
+            "Počasí nedostupné";
+    });
 
 }
 
 // První načtení
 loadWeather();
 
-// Automatická aktualizace podle config.js
-setInterval(loadWeather, refresh);
+// Automatická aktualizace
+setInterval(loadWeather, weatherConfig.refresh);
