@@ -268,7 +268,7 @@ body{
     height:100%;
 
     /* DŮLEŽITÉ - odstraní černý pruh */
-    object-fit:cover;
+    object-fit:fill;
     object-position:center center;
 
     display:none;
