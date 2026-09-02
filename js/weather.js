@@ -2,8 +2,9 @@
 // POČASÍ
 // =====================================================
 
+// Načtení nastavení z config.js
 const {
-    location,
+    location: weatherLocation,
     lat,
     lon,
     apiKey,
@@ -12,34 +13,36 @@ const {
 
 // Nastaví nadpis z konfigurace
 document.getElementById("weather-title").textContent =
-    `Počasí ${location}`;
+    `Počasí ${weatherLocation}`;
 
+// Funkce pro načtení počasí
 function loadWeather() {
 
     fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=cz&appid=${apiKey}`
     )
-    .then(response => response.json())
-    .then(data => {
+        .then(response => response.json())
+        .then(data => {
 
-        const temp = Math.round(data.main.temp);
-        const desc = data.weather[0].description;
+            const temp = Math.round(data.main.temp);
+            const desc = data.weather[0].description;
 
-        document.getElementById("weather").innerHTML =
-            `${temp}°C<br>${desc}`;
+            document.getElementById("weather").innerHTML =
+                `${temp}°C<br>${desc}`;
 
-    })
-    .catch(error => {
+        })
+        .catch(error => {
 
-        console.log(error);
+            console.error("Počasí:", error);
 
-        document.getElementById("weather").innerHTML =
-            "Počasí nedostupné";
-    });
+            document.getElementById("weather").innerHTML =
+                "Počasí nedostupné";
+        });
+
 }
 
 // První načtení
 loadWeather();
 
-// Aktualizace podle konfigurace
+// Automatická aktualizace podle config.js
 setInterval(loadWeather, refresh);
