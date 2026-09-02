@@ -1,5 +1,5 @@
 /* =======================================================
-   ZAMET TV V8 PREMIUM
+   ZAMET TV V8.1 PREMIUM
    Notebook • FullHD TV • 4K TV
    ======================================================= */
 
@@ -37,7 +37,6 @@ body{
    ======================================================= */
 
 #sidebar{
-
     flex:0 0 clamp(285px,17vw,330px);
 
     padding:12px;
@@ -68,7 +67,6 @@ body{
    ======================================================= */
 
 .info-card{
-
     position:relative;
     overflow:hidden;
 
@@ -80,11 +78,7 @@ body{
 
     border-radius:18px;
 
-    background:
-        linear-gradient(180deg,
-            #123A82 0%,
-            #0B285F 55%,
-            #071B42 100%);
+    background:linear-gradient(180deg,#123A82 0%,#0B285F 55%,#071B42 100%);
 
     border:1px solid rgba(255,255,255,.05);
 
@@ -94,33 +88,23 @@ body{
         0 8px 18px rgba(0,0,0,.35);
 }
 
-/* horní lesk */
-
 .info-card::after{
-
     content:"";
-
     position:absolute;
     inset:1px;
-
     border-radius:17px;
 
     background:linear-gradient(
         180deg,
         rgba(255,255,255,.08),
-        rgba(255,255,255,0) 38%
-    );
+        rgba(255,255,255,0) 38%);
 
     pointer-events:none;
 }
 
-/* datum karta */
-
 .date-card{
     padding:16px 14px;
 }
-
-/* obsah */
 
 .card-content{
     flex:1;
@@ -160,105 +144,51 @@ body{
     fill:none;
 }
 
-/* Ostatní ikonky */
+.blue{background:linear-gradient(180deg,#3392FF,#1757D5);}
+.red{background:linear-gradient(180deg,#FF6767,#CB3030);}
+.green{background:linear-gradient(180deg,#24E073,#0A9445);}
+.purple{background:linear-gradient(180deg,#CB70FF,#7B30D8);}
+.cyan{background:linear-gradient(180deg,#44CBFF,#1864D6);}
 
-.blue{
-    background:linear-gradient(180deg,#3392FF,#1757D5);
-}
-
-.red{
-    background:linear-gradient(180deg,#FF6767,#CB3030);
-}
-
-.green{
-    background:linear-gradient(180deg,#24E073,#0A9445);
-}
-
-.purple{
-    background:linear-gradient(180deg,#CB70FF,#7B30D8);
-}
-
-.cyan{
-    background:linear-gradient(180deg,#44CBFF,#1864D6);
-}
-
-/* =======================================================
-   ČESKÁ VLAJKA
-   ======================================================= */
-
+/* Česká vlajka */
 .flag-cz{
-    background:
-        linear-gradient(
-            to bottom,
-            #ffffff 0%,
-            #ffffff 50%,
-            #d7141a 50%,
-            #d7141a 100%
-        );
+    background:linear-gradient(to bottom,#fff 0%,#fff 50%,#D7141A 50%,#D7141A 100%);
 }
 
 .flag-cz::before{
     content:"";
     position:absolute;
-    left:0;
-    top:0;
-
+    inset:0 auto 0 0;
     width:58%;
-    height:100%;
-
-    background:#11457e;
-
+    background:#11457E;
     clip-path:polygon(0 0,100% 50%,0 100%);
 }
 
-/* =======================================================
-   UKRAJINSKÁ VLAJKA
-   ======================================================= */
-
+/* Ukrajinská vlajka */
 .flag-ua{
-    background:
-        linear-gradient(
-            to bottom,
-            #005BBB 0%,
-            #005BBB 50%,
-            #FFD500 50%,
-            #FFD500 100%
-        );
+    background:linear-gradient(to bottom,#005BBB 0%,#005BBB 50%,#FFD500 50%,#FFD500 100%);
 }
 
-/* U vlaječek není SVG */
 .flag-cz svg,
 .flag-ua svg{
     display:none;
 }
 
 /* =======================================================
-   DATUM
+   TEXTY
    ======================================================= */
 
 #date{
-
     font-size:clamp(20px,1.35vw,30px);
     font-weight:700;
     line-height:1.15;
-    color:white;
 }
-
-/* pokud přidáš den v týdnu */
 
 #weekday{
-
     margin-top:4px;
-
     color:#A8BEEA;
-
     font-size:14px;
-    font-weight:500;
 }
-
-/* =======================================================
-   NADPISY
-   ======================================================= */
 
 #nameday-title,
 #ua-title,
@@ -266,41 +196,25 @@ body{
 #countdown-title,
 #vacation-title,
 #weather-title{
-
     color:#9FB8E8;
-
     text-transform:uppercase;
-
     letter-spacing:1px;
-
     font-size:10px;
     font-weight:700;
-
     margin-bottom:5px;
 }
 
-/* =======================================================
-   HODNOTY
-   ======================================================= */
-
-#nameday{
-
-    font-size:clamp(23px,1.55vw,34px);
-    font-weight:800;
-    line-height:1.05;
-    color:#fff;
-}
-
+#nameday,
 #ua-nameday{
-
     font-size:clamp(23px,1.55vw,34px);
     font-weight:800;
     line-height:1.05;
-    color:#FFD400;
 }
+
+#nameday{color:#fff;}
+#ua-nameday{color:#FFD400;}
 
 #holiday{
-
     font-size:clamp(16px,1vw,20px);
     font-weight:700;
     line-height:1.25;
@@ -308,7 +222,6 @@ body{
 }
 
 #countdown{
-
     font-size:clamp(30px,1.9vw,42px);
     font-weight:900;
     line-height:1;
@@ -316,7 +229,6 @@ body{
 }
 
 #vacation{
-
     font-size:clamp(13px,.88vw,16px);
     font-weight:700;
     line-height:1.35;
@@ -324,57 +236,46 @@ body{
 }
 
 #weather{
-
     font-size:14px;
     font-weight:600;
     line-height:1.3;
-    color:#fff;
 }
 
-/* Teplota */
-
 #weather::first-line{
-
     font-size:clamp(28px,1.8vw,38px);
     font-weight:800;
     color:#59CBFF;
 }
 
 /* =======================================================
-   PRAVÁ ČÁST
+   PRAVÁ ČÁST (OPRAVENO)
    ======================================================= */
 
 #content{
-
     position:relative;
     flex:1;
-
-    background:#000;
     overflow:hidden;
+
+    /* tmavé jen při načítání */
+    background:#111827;
 }
 
-/* obrázky */
-
 #slideImage{
-
     position:absolute;
     inset:0;
 
     width:100%;
     height:100%;
 
-    object-fit:contain;
-
-    background:#000;
+    /* DŮLEŽITÉ - odstraní černý pruh */
+    object-fit:cover;
+    object-position:center center;
 
     display:none;
     z-index:1;
 }
 
-/* iframe */
-
 #contentFrame{
-
     position:absolute;
     inset:0;
 
@@ -382,8 +283,7 @@ body{
     height:100%;
 
     border:none;
-
-    background:#000;
+    background:transparent;
 
     display:none;
     z-index:2;
@@ -394,14 +294,12 @@ body{
    ======================================================= */
 
 #ticker-bar{
-
     height:clamp(58px,3vw,66px);
 
     display:flex;
     align-items:center;
 
-    background:
-        linear-gradient(180deg,#0B347E,#04142B);
+    background:linear-gradient(180deg,#0B347E,#04142B);
 
     border-top:1px solid rgba(255,255,255,.08);
 
@@ -411,17 +309,13 @@ body{
 }
 
 #ticker{
-
     width:100%;
-
-    white-space:nowrap;
     text-align:center;
+    white-space:nowrap;
 
     color:#fff;
-
     font-size:clamp(15px,.95vw,22px);
     font-weight:700;
-
     letter-spacing:.2px;
 }
 
@@ -440,9 +334,7 @@ body{
    ======================================================= */
 
 #slideTimer{
-
     position:absolute;
-
     top:10px;
     right:10px;
 
@@ -452,7 +344,6 @@ body{
     border-radius:50%;
 
     background:rgba(0,0,0,.45);
-
     backdrop-filter:blur(6px);
 
     box-shadow:0 0 18px rgba(0,0,0,.45);
@@ -461,39 +352,27 @@ body{
 }
 
 #slideTimer svg{
-
     width:100%;
     height:100%;
-
     transform:rotate(-90deg);
 }
 
 .timer-bg{
-
     fill:none;
-
     stroke:rgba(255,255,255,.18);
-
     stroke-width:3;
 }
 
 .timer-progress{
-
     fill:none;
-
-    stroke:#FFFFFF;
-
+    stroke:#fff;
     stroke-width:3;
-
     stroke-linecap:round;
-
     stroke-dasharray:163;
-
     transition:stroke-dashoffset 1s linear;
 }
 
 #timerText{
-
     position:absolute;
     inset:0;
 
@@ -503,7 +382,6 @@ body{
 
     font-size:18px;
     font-weight:700;
-
     color:#fff;
 
     text-shadow:0 0 8px #000;
@@ -514,10 +392,7 @@ body{
    ======================================================= */
 
 @media (max-width:1400px){
-
-    #sidebar{
-        flex-basis:275px;
-    }
+    #sidebar{flex-basis:275px;}
 
     .info-card{
         padding:12px;
@@ -539,13 +414,8 @@ body{
         font-size:22px;
     }
 
-    #countdown{
-        font-size:32px;
-    }
-
-    #ticker{
-        font-size:15px;
-    }
+    #countdown{font-size:32px;}
+    #ticker{font-size:15px;}
 }
 
 /* =======================================================
@@ -553,14 +423,9 @@ body{
    ======================================================= */
 
 @media (min-width:1920px){
+    #sidebar{flex-basis:315px;}
 
-    #sidebar{
-        flex-basis:315px;
-    }
-
-    .info-card{
-        padding:15px;
-    }
+    .info-card{padding:15px;}
 
     .icon-box{
         width:48px;
@@ -578,14 +443,9 @@ body{
    ======================================================= */
 
 @media (min-width:2560px){
+    #sidebar{flex-basis:340px;}
 
-    #sidebar{
-        flex-basis:340px;
-    }
-
-    .info-card{
-        padding:18px;
-    }
+    .info-card{padding:18px;}
 
     .icon-box{
         width:52px;
@@ -598,15 +458,8 @@ body{
     }
 
     #nameday,
-    #ua-nameday{
-        font-size:34px;
-    }
+    #ua-nameday{font-size:34px;}
 
-    #countdown{
-        font-size:44px;
-    }
-
-    #ticker{
-        font-size:22px;
-    }
+    #countdown{font-size:44px;}
+    #ticker{font-size:22px;}
 }
