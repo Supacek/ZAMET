@@ -1,3 +1,11 @@
+/* =======================================================
+   ZAMET TV V4
+   ======================================================= */
+
+/* =======================================================
+   ZÁKLAD
+   ======================================================= */
+
 html,
 body{
     margin:0;
@@ -8,7 +16,7 @@ body{
     background:#020817;
     color:#fff;
 
-    font-family:"Segoe UI", Arial, sans-serif;
+    font-family:"Segoe UI",Arial,sans-serif;
 }
 
 /* =======================================================
@@ -18,7 +26,7 @@ body{
 #main{
     display:flex;
     width:100vw;
-    height:calc(100vh - 70px);
+    height:calc(100vh - 68px);
     background:#020817;
 }
 
@@ -28,24 +36,26 @@ body{
 
 #sidebar{
 
-    width:340px;
-    min-width:340px;
-    max-width:340px;
+    width:300px;
+    min-width:300px;
+    max-width:300px;
 
-    padding:16px;
+    padding:12px;
+    gap:10px;
 
     box-sizing:border-box;
 
     display:flex;
     flex-direction:column;
-    gap:12px;
 
     background:
-        radial-gradient(circle at top,#123b90 0%,#081b45 45%,#020817 100%);
+        radial-gradient(circle at top,#1648a4 0%,#0b2558 35%,#041228 100%);
 
     border-right:1px solid rgba(255,255,255,.08);
 
-    box-shadow:10px 0 25px rgba(0,0,0,.45);
+    box-shadow:
+        inset -1px 0 rgba(255,255,255,.04),
+        8px 0 25px rgba(0,0,0,.35);
 }
 
 /* =======================================================
@@ -56,21 +66,22 @@ body{
 
     position:relative;
 
-    padding:18px 20px 18px 82px;
+    padding:14px 16px 14px 68px;
 
     border-radius:18px;
 
-    background:linear-gradient(180deg,#123d8c,#0a265f);
-
-    font-size:34px;
-    font-weight:700;
-    line-height:1.2;
-
-    text-align:left;
+    background:
+        linear-gradient(180deg,#123c8b,#0a2558);
 
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,.05),
-        0 10px 22px rgba(0,0,0,.35);
+        0 8px 18px rgba(0,0,0,.35);
+
+    text-align:left;
+
+    font-size:18px;
+    font-weight:700;
+    line-height:1.35;
 }
 
 #date::before{
@@ -79,24 +90,25 @@ body{
 
     position:absolute;
 
-    left:18px;
+    left:14px;
     top:50%;
+
     transform:translateY(-50%);
 
-    width:48px;
-    height:48px;
+    width:42px;
+    height:42px;
+
+    border-radius:12px;
 
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
 
-    border-radius:14px;
+    font-size:20px;
 
-    background:linear-gradient(180deg,#2b7cff,#1655d1);
+    background:linear-gradient(180deg,#2d83ff,#1658d5);
 
-    font-size:25px;
-
-    box-shadow:0 5px 15px rgba(0,90,255,.35);
+    box-shadow:0 4px 12px rgba(0,90,255,.35);
 }
 
 /* =======================================================
@@ -107,73 +119,77 @@ body{
 
     position:relative;
 
-    padding:16px 18px 16px 82px;
+    padding:12px 14px 12px 68px;
+
+    min-height:56px;
 
     border-radius:18px;
 
-    background:linear-gradient(180deg,#10367c,#071f4d);
+    background:
+        linear-gradient(180deg,#10367d,#071d46);
 
     border:1px solid rgba(255,255,255,.05);
 
-    min-height:72px;
-
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.04),
-        0 8px 20px rgba(0,0,0,.35);
+        inset 0 1px 0 rgba(255,255,255,.05),
+        0 6px 16px rgba(0,0,0,.30);
 }
 
-/* ikonové boxy */
+/* =======================================================
+   IKONOVÉ BOXÍKY
+   ======================================================= */
 
 #sidebar section::before{
 
     position:absolute;
 
-    left:18px;
+    left:14px;
     top:50%;
+
     transform:translateY(-50%);
 
-    width:48px;
-    height:48px;
+    width:42px;
+    height:42px;
 
-    border-radius:14px;
+    border-radius:12px;
 
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
 
-    font-size:23px;
+    font-size:20px;
 }
 
-/* jednotlivé ikony */
+/* Jednotlivé barvy */
 
 #sidebar section:nth-of-type(1)::before{
     content:"👤";
-    background:linear-gradient(180deg,#2c7cff,#1756d2);
+    background:linear-gradient(180deg,#2e7dff,#1855d0);
 }
 
 #sidebar section:nth-of-type(2)::before{
     content:"🇺🇦";
-    background:linear-gradient(180deg,#ffd84c,#d59c00);
+    background:linear-gradient(180deg,#ffd94d,#d99d00);
 }
 
 #sidebar section:nth-of-type(3)::before{
     content:"📅";
-    background:linear-gradient(180deg,#ff6666,#c93030);
+    background:linear-gradient(180deg,#ff6464,#cb3030);
 }
 
 #sidebar section:nth-of-type(4)::before{
     content:"🎄";
-    background:linear-gradient(180deg,#1fe36e,#0a9543);
+    background:linear-gradient(180deg,#22dc73,#0b9444);
 }
 
 #sidebar section:nth-of-type(5)::before{
     content:"🧳";
-    background:linear-gradient(180deg,#c96cff,#7d30d8);
+    background:linear-gradient(180deg,#c66dff,#7c2fd8);
 }
 
 #sidebar section:nth-of-type(6)::before{
     content:"☁️";
-    background:linear-gradient(180deg,#3cc6ff,#1763d5);
+    background:linear-gradient(180deg,#42c8ff,#1663d4);
 }
 
 /* =======================================================
@@ -187,15 +203,15 @@ body{
 #vacation-title,
 #weather-title{
 
-    margin:0 0 6px;
+    margin:0 0 4px;
 
-    color:#9eb7e7;
+    color:#8ea7d7;
 
     text-transform:uppercase;
 
     letter-spacing:1px;
 
-    font-size:12px;
+    font-size:11px;
     font-weight:600;
 
     text-align:left;
@@ -207,90 +223,82 @@ body{
 
 #nameday{
 
-    font-size:34px;
+    font-size:24px;
     font-weight:800;
 
     color:#fff;
 
-    text-align:left;
-
     padding:0;
+    text-align:left;
 }
 
 #ua-nameday{
 
-    font-size:34px;
+    font-size:24px;
     font-weight:800;
 
     color:#ffd400;
 
-    text-align:left;
-
     padding:0;
+    text-align:left;
 }
 
 #holiday{
 
-    font-size:20px;
-    font-weight:800;
+    font-size:17px;
+    font-weight:700;
 
-    color:#ff4d4d;
+    color:#ff5151;
 
-    line-height:1.35;
-
-    text-align:left;
+    line-height:1.3;
 
     padding:0;
+    text-align:left;
 }
 
 #countdown{
 
-    font-size:38px;
+    font-size:28px;
     font-weight:800;
 
-    color:#22ef7b;
-
-    text-align:left;
+    color:#23ef7c;
 
     padding:0;
+    text-align:left;
 }
 
 #vacation{
 
-    font-size:18px;
+    font-size:15px;
     font-weight:700;
 
-    color:#d96cff;
+    color:#d56bff;
 
-    line-height:1.5;
-
-    text-align:left;
+    line-height:1.45;
 
     padding:0;
+    text-align:left;
 }
 
 #weather{
 
-    font-size:18px;
-    font-weight:700;
+    font-size:15px;
+    font-weight:600;
 
-    color:#ffffff;
+    color:#fff;
 
-    line-height:1.4;
-
-    text-align:left;
+    line-height:1.3;
 
     padding:0;
+    text-align:left;
 }
-
-/* teplota větší */
 
 #weather::first-line{
 
-    color:#57caff;
-
-    font-size:34px;
+    font-size:28px;
     font-weight:800;
+
+    color:#59cbff;
 }
 
 /* =======================================================
@@ -317,7 +325,6 @@ body{
 #slideImage{
 
     position:absolute;
-
     inset:0;
 
     width:100%;
@@ -339,7 +346,6 @@ body{
 #contentFrame{
 
     position:absolute;
-
     inset:0;
 
     width:100%;
@@ -361,8 +367,7 @@ body{
 #ticker-bar{
 
     width:100vw;
-
-    height:70px;
+    height:68px;
 
     display:flex;
     align-items:center;
@@ -370,11 +375,11 @@ body{
     overflow:hidden;
 
     background:
-        linear-gradient(180deg,#082a71,#041631);
+        linear-gradient(180deg,#082b73,#041530);
 
     border-top:1px solid rgba(255,255,255,.08);
 
-    box-shadow:0 -8px 20px rgba(0,0,0,.35);
+    box-shadow:0 -8px 18px rgba(0,0,0,.35);
 }
 
 #ticker{
@@ -385,20 +390,20 @@ body{
 
     white-space:nowrap;
 
-    color:#fff;
+    color:white;
 
-    font-size:26px;
+    font-size:22px;
     font-weight:700;
 
-    letter-spacing:.5px;
+    letter-spacing:.4px;
 }
 
 .ticker-green{
-    color:#17ef7d;
+    color:#19ef7d;
 }
 
 .ticker-yellow{
-    color:#ffd400;
+    color:#ffd43d;
 }
 
 .ticker-blue{
@@ -410,15 +415,6 @@ body{
 }
 
 /* =======================================================
-   POČASÍ
-   ======================================================= */
-
-#weather-title{
-    margin-top:0;
-    margin-bottom:6px;
-}
-
-/* =======================================================
    TIMER
    ======================================================= */
 
@@ -426,29 +422,29 @@ body{
 
     position:absolute;
 
-    top:12px;
-    right:12px;
+    top:10px;
+    right:10px;
 
-    width:60px;
-    height:60px;
+    width:56px;
+    height:56px;
 
     z-index:9999;
 
-    background:rgba(0,0,0,.45);
-
     border-radius:50%;
+
+    background:rgba(0,0,0,.45);
 
     backdrop-filter:blur(6px);
 
-    box-shadow:0 0 18px rgba(0,0,0,.45);
+    box-shadow:0 0 14px rgba(0,0,0,.45);
 }
 
 #slideTimer svg{
 
     position:absolute;
 
-    width:60px;
-    height:60px;
+    width:56px;
+    height:56px;
 
     transform:rotate(-90deg);
 }
@@ -457,7 +453,7 @@ body{
 
     fill:none;
 
-    stroke:rgba(255,255,255,.15);
+    stroke:rgba(255,255,255,.18);
 
     stroke-width:3;
 }
@@ -473,7 +469,6 @@ body{
     stroke-linecap:round;
 
     stroke-dasharray:163;
-
     stroke-dashoffset:0;
 
     transition:stroke-dashoffset 1s linear;
@@ -482,19 +477,16 @@ body{
 #timerText{
 
     position:absolute;
-
     inset:0;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    font-size:22px;
-    font-weight:bold;
+    font-size:20px;
+    font-weight:700;
 
     color:white;
 
-    text-shadow:
-        0 0 4px black,
-        0 0 8px black;
+    text-shadow:0 0 8px black;
 }
