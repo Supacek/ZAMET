@@ -463,3 +463,11 @@ body{
     #countdown{font-size:44px;}
     #ticker{font-size:22px;}
 }
+
+#clock{
+    font-size: clamp(28px,2vw,40px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 1px;
+    color: #fff;
+}
