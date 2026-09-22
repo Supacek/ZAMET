@@ -465,15 +465,28 @@ body{
 }
 
 /* ===== HODINY ===== */
-.clock-card .card-content{
-    display:flex;
-    align-items:center;
+/* Panel hodin */
+.clock-card{
+    background: linear-gradient(180deg,#0F3D86 0%, #08295D 100%);
 }
 
+/* Nadpis */
+.clock-title{
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #8EC5FF;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+/* Čas */
 #clock{
-    font-size: clamp(42px, 2.6vw, 58px);
+    font-size: clamp(42px,2.6vw,56px);
     font-weight: 900;
-    color: #fff;
+    color: #22D3EE;          /* tyrkysové hodiny */
     line-height: 1;
     letter-spacing: 2px;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 12px rgba(34,211,238,.35);
 }
