@@ -464,7 +464,12 @@ body{
     #ticker{font-size:22px;}
 }
 
+/* =======================================================
+   TEXTY
+   ======================================================= */
+
 /* ===== HODINY ===== */
+
 /* Panel hodin */
 .clock-card{
     background: linear-gradient(180deg,#0F3D86 0%, #08295D 100%);
@@ -484,9 +489,16 @@ body{
 #clock{
     font-size: clamp(42px,2.6vw,56px);
     font-weight: 900;
-    color: #22D3EE;          /* tyrkysové hodiny */
+    color: #22D3EE;
     line-height: 1;
     letter-spacing: 2px;
     font-variant-numeric: tabular-nums;
     text-shadow: 0 0 12px rgba(34,211,238,.35);
+}
+
+/* Datum */
+#date{
+    font-size: clamp(20px,1.35vw,30px);
+    font-weight: 700;
+    line-height: 1.15;
 }
