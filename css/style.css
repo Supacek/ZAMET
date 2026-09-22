@@ -1,6 +1,6 @@
 /* =======================================================
-   ZAMET Dashboard V11.0
-   Jedno CSS pro PC, notebook i Raspberry + SHARP TV
+   ZAMET Dashboard V12.0
+   Notebook • PC • Raspberry + SHARP 4K TV
    ======================================================= */
 
 /* =======================================================
@@ -36,7 +36,6 @@ body{
 
 #sidebar{
     flex:0 0 clamp(330px,23vw,450px);
-
     padding:clamp(14px,1vh,20px);
     box-sizing:border-box;
 
@@ -90,12 +89,10 @@ body{
     position:absolute;
     inset:1px;
     border-radius:19px;
-
     background:linear-gradient(
         180deg,
         rgba(255,255,255,.08),
         rgba(255,255,255,0) 40%);
-
     pointer-events:none;
 }
 
@@ -139,7 +136,7 @@ body{
     width:28px;
     height:28px;
 
-    stroke:white;
+    stroke:#fff;
     stroke-width:2.2;
     fill:none;
 }
@@ -155,7 +152,7 @@ body{
    ======================================================= */
 
 .flag-cz{
-    background:linear-gradient(to bottom,#FFFFFF 0%,#FFFFFF 50%,#D7141A 50%,#D7141A 100%);
+    background:linear-gradient(to bottom,#fff 0%,#fff 50%,#D7141A 50%,#D7141A 100%);
 }
 
 .flag-cz::before{
@@ -192,7 +189,7 @@ body{
     font-size:clamp(12px,1vh,16px);
 }
 
-/* Nadpisy */
+/* Nadpisy panelů */
 
 #nameday-title,
 #ua-title,
@@ -217,13 +214,8 @@ body{
     line-height:1.05;
 }
 
-#nameday{
-    color:#FFFFFF;
-}
-
-#ua-nameday{
-    color:#FFD400;
-}
+#nameday{color:#fff;}
+#ua-nameday{color:#FFD400;}
 
 /* Státní svátek */
 
@@ -356,7 +348,7 @@ body{
     text-align:center;
     white-space:nowrap;
 
-    color:#FFFFFF;
+    color:#fff;
     font-size:clamp(15px,1vw,22px);
     font-weight:700;
     letter-spacing:.2px;
@@ -408,7 +400,7 @@ body{
 
 .timer-progress{
     fill:none;
-    stroke:#FFFFFF;
+    stroke:#fff;
     stroke-width:3;
     stroke-linecap:round;
     stroke-dasharray:163;
@@ -425,9 +417,103 @@ body{
 
     font-size:18px;
     font-weight:700;
-    color:#FFFFFF;
+    color:#fff;
 
     text-shadow:0 0 8px #000;
+}
+
+/* =======================================================
+   4K TV (3840×2160) – Raspberry + SHARP
+   ======================================================= */
+
+@media (min-width:3000px) and (min-height:1800px){
+
+    #sidebar{
+        flex-basis:560px;
+        padding:22px;
+        gap:18px;
+    }
+
+    .info-card{
+        padding:22px;
+        gap:18px;
+        border-radius:24px;
+    }
+
+    .icon-box{
+        width:72px;
+        height:72px;
+        border-radius:18px;
+    }
+
+    .icon-box svg{
+        width:36px;
+        height:36px;
+    }
+
+    #date{
+        font-size:42px;
+    }
+
+    #weekday{
+        font-size:20px;
+    }
+
+    #nameday-title,
+    #ua-title,
+    #holiday-title,
+    #countdown-title,
+    #vacation-title,
+    #weather-title,
+    .clock-title{
+        font-size:16px;
+    }
+
+    #nameday,
+    #ua-nameday{
+        font-size:46px;
+    }
+
+    #holiday{
+        font-size:28px;
+    }
+
+    #countdown{
+        font-size:72px;
+    }
+
+    #vacation{
+        font-size:20px;
+    }
+
+    #weather{
+        font-size:20px;
+    }
+
+    #weather::first-line{
+        font-size:56px;
+    }
+
+    #clock{
+        font-size:84px;
+    }
+
+    #ticker-bar{
+        height:82px;
+    }
+
+    #ticker{
+        font-size:22px;
+    }
+
+    #slideTimer{
+        width:78px;
+        height:78px;
+    }
+
+    #timerText{
+        font-size:22px;
+    }
 }
 
 /* =======================================================
@@ -437,54 +523,79 @@ body{
 @media (max-width:1400px){
 
     #sidebar{
-        flex-basis:280px;
-        padding:12px;
-        gap:10px;
+        flex-basis:270px;
+        padding:10px;
+        gap:8px;
     }
 
     .info-card{
-        padding:12px;
-        gap:12px;
+        padding:10px 12px;
+        gap:10px;
         border-radius:16px;
     }
 
     .icon-box{
-        width:44px;
-        height:44px;
+        width:40px;
+        height:40px;
     }
 
     .icon-box svg{
-        width:22px;
-        height:22px;
+        width:20px;
+        height:20px;
+    }
+
+    .clock-title,
+    #nameday-title,
+    #ua-title,
+    #holiday-title,
+    #countdown-title,
+    #vacation-title,
+    #weather-title{
+        font-size:10px;
+        margin-bottom:3px;
+        letter-spacing:1px;
     }
 
     #clock{
-        font-size:40px;
+        font-size:34px;
     }
 
     #date{
-        font-size:22px;
+        font-size:19px;
+    }
+
+    #weekday{
+        font-size:12px;
     }
 
     #nameday,
     #ua-nameday{
-        font-size:24px;
+        font-size:21px;
     }
 
     #holiday{
-        font-size:16px;
+        font-size:15px;
+        line-height:1.15;
     }
 
     #countdown{
-        font-size:36px;
-    }
-
-    #weather::first-line{
         font-size:30px;
     }
 
-    #ticker{
-        font-size:14px;
+    #vacation{
+        font-size:13px;
+        line-height:1.2;
     }
 
+    #weather{
+        font-size:13px;
+    }
+
+    #weather::first-line{
+        font-size:26px;
+    }
+
+    #ticker{
+        font-size:13px;
+    }
 }
