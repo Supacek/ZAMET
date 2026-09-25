@@ -9,7 +9,6 @@ const CONFIG = {
     // =========================
     slides: [
         { url: "vysledky.jpg", type: "image", duration: 15 },
-        { url: "DK.jpg", type: "image", duration: 15 },
         { url: "huslesvarec.jpg", type: "image", duration: 15 },
         { url: "kolegwide4.jpg", type: "image", duration: 10 },
         { url: "hotelwide.jpg", type: "image", duration: 10 }
