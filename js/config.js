@@ -8,6 +8,7 @@ const CONFIG = {
     // Slideshow
     // =========================
     slides: [
+        { url: "soutez11.jpg", type: "image", duration: 15 },
         { url: "darovani.jpg", type: "image", duration: 15 },
         { url: "huslesvarec.jpg", type: "image", duration: 15 },
         { url: "kolegwide4.jpg", type: "image", duration: 10 },
